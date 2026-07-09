@@ -473,59 +473,6 @@
             min-width: 45px;
         }
 
-        /* QRコード取得・表示エリア */
-        .qr-card {
-            background: #fff;
-            border: 3px solid var(--brand-black);
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .qr-box {
-            width: 180px;
-            height: 180px;
-            margin: 15px auto;
-            border: 4px solid var(--brand-black);
-            padding: 10px;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .qr-box img { width: 100%; height: 100%; display: block; }
-
-        .form-group {
-            text-align: left;
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 900;
-            margin-bottom: 5px;
-            color: var(--brand-black);
-        }
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid var(--brand-black);
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            background: #fdfdfc;
-            border-radius: 4px;
-            outline: none;
-        }
-        .form-control:focus {
-            border-color: var(--brand-orange);
-            background: #fff;
-        }
-        .form-control:disabled {
-            background: #eee;
-            color: #666;
-            cursor: not-allowed;
-        }
-
         /* 制限エリア */
         .lock-screen {
             text-align: center;
@@ -569,11 +516,49 @@
         .staff-card h5 { font-size: 15px; font-weight: 900; margin-bottom: 5px; }
         .staff-card p { font-size: 12px; color: #666; font-weight: 700; margin-bottom: 15px; }
 
+        /* 常にページトップに戻るボタンのスタイル */
+        .pagetop-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--brand-black);
+            color: #FFFFFF;
+            border: 3px solid var(--brand-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-decoration: none;
+            z-index: 999;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+            transition: transform 0.1s;
+        }
+        .pagetop-btn:active {
+            transform: scale(0.9);
+        }
+
+        /* 埋め込みマップ画像のレスポンシブスタイル */
+        .embed-map-container {
+            margin-top: 15px;
+            border: 3px solid var(--brand-black);
+            border-radius: 4px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .embed-map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
     </style>
 </head>
 <body>
 
-    <header>
+    <header id="top">
         <div class="logo-container">
             <img src="buddy_logo.png" alt="BUDDY SUMMER CAMP">
         </div>
@@ -585,7 +570,7 @@
         <a href="#rules" class="nav-link"><i class="fa-solid fa-triangle-exclamation"></i> 行動・持ち物ルール</a>
         <a href="#stay" class="nav-link"><i class="fa-solid fa-bed"></i> 宿泊・食事</a>
         <a href="#schedule" class="nav-link"><i class="fa-solid fa-route"></i> スケジュール</a>
-        <a href="#qrsystem" class="nav-link"><i class="fa-solid fa-qrcode"></i> QR点呼・係専用</a>
+        <a href="#qrsystem" class="nav-link"><i class="fa-solid fa-qrcode"></i> 行事係専用</a>
     </nav>
 
     <div class="container">
@@ -640,14 +625,13 @@
             <h3 style="margin-top: 0;"><i class="fa-solid fa-list-check"></i> 保護者の遵守事項と絶対禁止事項</h3>
             <p style="font-weight: 700; font-size: 13px; margin-bottom: 15px;">皆様のご理解とご協力が不可欠です。以下のルールを必ずお守りください。</p>
 
-            <!-- 最重要項目を最上部に特大で目立たせて配置 -->
             <div class="critical-alert-box">
                 <span style="display: block; font-size: 16px; font-weight: 900; color: var(--alert-red); text-align: center; margin-bottom: 4px;">
                     <i class="fa-solid fa-triangle-exclamation"></i> 【最重要・徹底遵守】 <i class="fa-solid fa-triangle-exclamation"></i>
                 </span>
                 <p style="font-size: 15px; font-weight: 900; color: var(--brand-black); line-height: 1.5; text-align: center; background: #fff; padding: 10px; border: 2px solid var(--alert-red);">
-                    保護者確認証（参加証）の【常時着用】<br>
-                    <span style="font-size: 12px; font-weight: 700; color: #555; display: block; margin-top: 4px;">※園から配布される参加証（保護者確認証）は、現地で常に見えるところに身に着けてください。他者への譲渡・貸出は厳禁です。</span>
+                    サマーキャンプ参加許可証の【常時着用】<br>
+                    <span style="font-size: 12px; font-weight: 700; color: #555; display: block; margin-top: 4px;">※園から配布される「サマーキャンプ参加許可証」は、現地で常に見える位置に身に着けてください。他者への譲渡・貸出は厳禁です。</span>
                 </p>
             </div>
 
@@ -666,18 +650,21 @@
                     <ul class="rules-list forbidden" style="font-weight: 900; font-size: 13px;">
                         <li><span style="color: var(--alert-red); font-size: 15px; font-weight: 900;">✖️</span> <strong>特定の子どもへの【声掛け・接触】</strong></li>
                         <li><span style="color: var(--alert-red); font-size: 15px; font-weight: 900;">✖️</span> <strong>園児宿舎内への【立ち入り】</strong><br><span style="font-size: 11px; color: #555; font-weight: 700; padding-left: 20px; display: block;">※食事、生活、寝顔の撮影も含め一切禁止。</span></li>
-                        <li><span style="color: var(--alert-red); font-size: 15px; font-weight: 900;">✖️</span> <strong>写真・動画の【SNS・LINE投稿】</strong><br><span style="font-size: 11px; color: #555; font-weight: 700; padding-left: 20px; display: block;">※個人撮影データのネット公開は厳禁。</span></li>
+                        <li><span style="color: var(--alert-red); font-size: 15px; font-weight: 900;">✖️</span> <strong>写真・動画の【SNS・LINE投稿】</strong><br><span style="font-size: 11px; color: #555; font-weight: 700; padding-left: 20px; display: block;">個人撮影データのネット公開は厳禁。</span></li>
                         <li><span style="color: var(--alert-red); font-size: 15px; font-weight: 900;">✖️</span> <strong>乗り入れ禁止区域への【車両進入・路上駐車】</strong></li>
                     </ul>
                 </div>
             </div>
 
             <h3><i class="fa-solid fa-bag-shopping"></i> 保護者の持ち物 ＆ イベント規定</h3>
+            
+            <a href="持ち物リスト.png" class="gear-btn" target="_blank" style="background: var(--brand-olive); color: white; border-color: white; margin-bottom: 15px;"><i class="fa-solid fa-image" style="color: white;"></i> 【原本】保護者持ち物のご案内（画像を確認する）</a>
+
             <div class="hazard-box" style="margin-top: 5px; background: #FFF9F0; border-color: var(--brand-coyote);">
                 <h4><i class="fa-solid fa-tag" style="color: var(--brand-orange);"></i> 荷物に関するルール</h4>
                 <p style="font-size: 12px; font-weight: 700; line-height: 1.5;">
-                    ・バッグの大きさに制限はありません。<strong>すべての荷物に【各園カラーテープ】で『園名・氏名（⚪︎⚪︎）』を記載</strong>し、見えやすい位置に必ず貼付してください。<br>
-                    <span style="color: var(--alert-red);">※園カラー以外のテープは使用不可とします。</span>
+                    ・バッグの大きさに制限はありません。目安としてご確認いただき、当日必要に応じてご準備ください。<br>
+                    ・<strong>すべての荷物に【オレンジ色のテープ】で『有明・氏名（⚪︎⚪︎）』を記載</strong>し、見えやすい位置に必ず貼付してください。他園との荷物の取り違いを防止するため、<span style="color: var(--alert-red);">オレンジ色以外のテープは使用不可</span>とします。
                 </p>
             </div>
 
@@ -685,63 +672,92 @@
                 <div class="packing-category">
                     <h4>富士登山</h4>
                     <ul class="packing-list">
-                        <li class="required"><strong>登山に適した靴</strong> <span class="badge-req">必須</span></li>
-                        <li class="required"><strong>雨具（上下セパレートのもの）</strong> <span class="badge-req">必須</span></li>
-                        <li class="required"><strong>防寒着（パーカー/ウインドブレーカー）</strong> <span class="badge-req">必須</span></li>
+                        <li class="required"><strong>登山に適した靴</strong> <span class="badge-req">必須!!!</span></li>
+                        <li>動きやすい服装（UVカット、速乾）</li>
+                        <li class="required"><strong>雨具（上下セパレートのもの）</strong> <span class="badge-req">必須!!!</span></li>
+                        <li>タオル（汗拭きや日よけとして）</li>
+                        <li>小銭（トイレ1回100〜300円、チップ等）</li>
+                        <li>流せるティッシュ</li>
+                        <li>昼食（食べやすいもの）・飲み物</li>
+                        <li>レジャーシート（昼食用）</li>
+                        <li>携帯酸素（必要な方のみ）<br><span style="font-size: 10px; color:#555;">※携帯酸素は、保護者の判断で個別に使用せず、必ず園職員の指示に従ってください。園児が興味を持たないよう使用時のご配慮をお願いいたします。</span></li>
                         <li>帽子 / サングラス / 日焼け止め</li>
-                        <li>半袖・長袖（UVカット、速乾タイプ推奨）</li>
-                        <li>携帯トイレ（各自2〜3個）</li>
-                        <li>タオル（汗拭きや日よけ用）</li>
-                        <li>小銭（トイレ1回100〜300円、チップ制のため）</li>
+                        <li class="required"><strong>防寒着（ウィンドブレーカー、薄手のダウン等）</strong> <span class="badge-req">必須!!!</span></li>
                         <li>トレッキングポール（あると下山が楽になります）</li>
-                        <li>溶けるティッシュ（トイレ用）</li>
-                        <li>携帯酸素 <br><span style="font-size: 10px; color:#555;">※園児に勝手に使用させない・興味を持たせないよう配慮すること</span></li>
-                        <li>入山申請コード（吉田ルート用）</li>
+                        <li>ウェットティッシュ</li>
+                        <li>携帯トイレ（各自2〜3個）</li>
+                        <li class="required"><strong>サマーキャンプ参加許可証</strong> <span class="badge-req">必須!!!</span></li>
+                        <li style="list-style: none; margin-top: 5px; padding-left: 0; font-weight: 900; color: var(--brand-orange);">☑ 入山申請コード（富士山吉田ルート）<br><span style="font-size: 10px; color: #555; font-weight: 700;">※QRコードのスクショ（推奨）</span></li>
                     </ul>
                 </div>
 
                 <div class="packing-category">
                     <h4>洞窟探検・石割山</h4>
                     <ul class="packing-list">
-                        <li>歩きやすい服装、靴、帽子</li>
-                        <li>虫除け / 日焼け止め / ウェットティッシュ</li>
+                        <li>帽子</li>
+                        <li>動きやすい服装・靴</li>
+                        <li>虫除け</li>
                         <li>携帯トイレ（各自2〜3個）</li>
-                        <li>昼食（食べやすいもの）・飲み物</li>
-                        <li class="required"><strong>上下セパレートの雨具</strong> <span class="badge-req">雨天時必須</span><br><span style="font-size: 10px; color:#555;">※雨天時は傘の使用不可</span></li>
-                        
-                        <li style="list-style:none; margin-top:10px; padding-left:0; font-weight:900; color:var(--brand-orange);">【洞窟内部への入洞希望者のみ】</li>
-                        <li class="required"><strong>ヘルメット</strong> <span class="badge-req">必須</span></li>
-                        <li class="required"><strong>防寒着</strong>（内部は気温0℃前後）</li>
-                        <li class="required"><strong>手袋</strong>（スキー用手袋がおすすめ）</li>
-                        <li class="required"><strong>ヘッドライト</strong></li>
-                        <li>雨具上下 または スキーウェア（水滴で濡れるため）</li>
-                        <li><span style="font-size:11px; color:#555;">※足元に水たまりが多いため登山靴がおすすめ</span></li>
+                        <li>雨具上下（雨天時は傘の使用は不可）</li>
+                        <li class="required"><strong>ヘルメット</strong> <span class="badge-req">必須!!!</span></li>
+                        <li>配布された昼食・飲み物</li>
+                        <li class="required"><strong>サマーキャンプ参加許可証</strong> <span class="badge-req">必須!!!</span></li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 15px;">洞窟入洞後持ち物 <span style="font-size: 11px; color: var(--brand-olive); font-weight: 700;">※洞窟に入る予定の方のみ</span></h4>
+                    <ul class="packing-list">
+                        <li>防寒着（内部の気温は0℃前後）</li>
+                        <li>雨具（上下セパレート）またはスキーウェア（濡れるので上下セパレート雨具を推奨）</li>
+                        <li>手袋（スキー用手袋がおすすめ）</li>
+                        <li>ヘッドライト</li>
+                        <li class="required"><strong>ヘルメット</strong> <span class="badge-req">必須!!!</span></li>
+                        <li class="required"><strong>サマーキャンプ参加許可証</strong> <span class="badge-req">必須!!!</span></li>
+                        <li style="list-style: none; padding-left: 0; font-size: 10px; color: #555; line-height: 1.3; margin-top: 5px;">
+                            ※洞窟内では雪解け水により水たまりが増えています。登山靴の着用を推奨します。<br>
+                            ※お手伝い参加の方は別途持ち物をご連絡させていただきます。
+                        </li>
                     </ul>
                 </div>
 
                 <div class="packing-category">
-                    <h4>▪️ キャンプファイヤー</h4>
+                    <h4>🔥 キャンプファイヤー</h4>
                     <ul class="packing-list">
-                        <li class="required"><strong>ヘッドライトまたは懐中電灯</strong><br><span style="font-size: 10px; color:#555;">※宿から会場への移動時は足元が大変暗くなります</span></li>
-                        <li>学年Tシャツ</li>
-                        <li>タオル</li>
+                        <li>防寒着</li>
+                        <li class="required"><strong>サマーキャンプ参加許可証</strong> <span class="badge-req">必須!!!</span></li>
+                        <li>ヘッドライトもしくは懐中電灯（宿泊先⇔会場間の道は非常に暗いため）</li>
                     </ul>
-                    <h4 style="margin-top: 15px;">▪️ クロスカントリー</h4>
+                    
+                    <h4 style="margin-top: 15px;">🌲 クロスカントリー</h4>
                     <ul class="packing-list">
-                        <li class="required"><strong>帽子</strong><br><span style="font-size: 10px; color:#555;">※日除けがないもの</span></li>
+                        <li>学年Tシャツ（推奨）</li>
+                        <li>学年タオル（推奨）</li>
+                        <li>帽子（白傘使用不可）</li>
+                        <li class="required"><strong>サマーキャンプ参加許可証</strong> <span class="badge-req">必須!!!</span></li>
                     </ul>
                 </div>
 
                 <div class="packing-category">
-                    <h4>ホテル・旅館（宿泊アメニティ）</h4>
+                    <h4>ホテル・旅館</h4>
                     <ul class="packing-list">
-                        <li class="required"><strong>シャンプー・石鹸などのアメニティ類</strong></li>
-                        <li class="required"><strong>バスタオル・フェイスタオル</strong><br><span style="font-size: 10px; color:#555;">※エクシブ以外はタオル類の備え付けが一切ありません（エクシブも未確定のため持参推奨）</span></li>
-                        <li><span style="font-size: 11px; color: var(--alert-red);">※全宿共通でルームサービスや部屋の無料の「水」はありません。</span></li>
+                        <li>シャンプーなどのアメニティは各自でご用意ください</li>
+                        <li>バスタオル・フェイスタオル（エクシブはある可能性がありますが当日までわかりません。他の宿はありません）</li>
+                        <li>ルームサービス・水などはありません</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 15px;">🍴 お食事について</h4>
+                    <ul class="packing-list" style="font-size: 11px;">
+                        <li><strong>2日目・3日目のお食事について：</strong><br>2日目はコンビニ手配の軽食（おにぎり、惣菜パン等）、3日目はお弁当が配布されます。</li>
                     </ul>
                 </div>
             </div>
-            <p style="font-size: 11px; font-weight: 700; color: #555; margin-top: 10px; text-align: right;">※全ての持ち物に「園名・名前」の記名を徹底してください。</p>
+            
+            <div class="hazard-box" style="margin-top: 15px; background: #fff; border-color: var(--brand-black); padding: 12px;">
+                <h4 style="font-size: 13px; color: var(--brand-orange);"><i class="fa-solid fa-circle-info"></i> お願い・リマインド</h4>
+                <p style="font-size: 11px; font-weight: 700; line-height: 1.4;">
+                    ・すべての持ち物に「有明・氏名」を記載してください。<br>
+                    ・ご不明な点がございましたら、行事係までお気軽にご連絡ください。
+                </p>
+            </div>
         </section>
 
         <section id="stay" class="gear-box">
@@ -798,6 +814,10 @@
                 </table>
             </div>
 
+            <div class="embed-map-container">
+                <img src="ariake/img/0hotel_map.JPG" alt="山中湖周辺 宿泊施設マップ">
+            </div>
+
             <div class="hazard-box">
                 <h4><i class="fa-solid fa-box-archive"></i> お弁当受取 ＆ チェックアウト重要ルール</h4>
                 <ul class="rules-list" style="margin-bottom: 0;">
@@ -814,7 +834,7 @@
             
             <h3 style="margin-top: 0;"><i class="fa-solid fa-clock-rotate-left"></i> 全日程タイムライン ＆ 各日規定</h3>
             <p style="font-weight: 700; font-size: 13px; margin-bottom: 15px;">
-                2日目は<strong>所属する園（有明・海浜幕張／江東／勝どき）によってバス出発時間およびプログラムの順序・集合時間が異なります</strong>。必ずご自身の園のスケジュールをご確認ください。
+                2日目は<strong>所属する園（有明園・海浜幕張園／江東園／勝どき園）によってバス出発時間およびプログラムの順序・集合時間が異なります</strong>。必ずご自身の園のスケジュールをご確認ください。
             </p>
 
             <div class="route-map">
@@ -853,7 +873,7 @@
                 
                 <div class="hazard-box red" style="margin-top: 5px;">
                     <h4><i class="fa-solid fa-triangle-exclamation"></i> 【厳重警告】道の駅なるさわ での駐車ルール</h4>
-                    <p style="font-size: 13px; font-weight: 700;">▲ <strong>道の駅なるさわ第3駐車場（洞窟探検集合場所）：</strong>道の駅に駐車したまま車両を離れた場合、警察へ通報されます。駐車中は必ずどなたかが車内に残るようお願いいたします。</p>
+                    <p style="font-size: 13px; font-weight: 700;">▲ <strong><a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--alert-red); text-decoration: underline;">道の駅なるさわ第3駐車場（洞窟探検集合場所）</a>：</strong>道の駅に駐車したまま車両を離れた場合、警察へ通報されます。駐車中は必ずどなたかが車内に残るようお願いいたします。</p>
                 </div>
 
                 <div class="route-point">
@@ -868,27 +888,27 @@
                     
                     <div class="class-schedule-container">
                         <div class="class-schedule-box">
-                            <div class="class-title"><i class="fa-solid fa-bus"></i> 【有明・海浜幕張 クラス】</div>
+                            <div class="class-title"><i class="fa-solid fa-bus"></i> 【有明園・海浜幕張園】</div>
                             <ul class="class-timeline">
                                 <li><span class="time">05:30</span> <span><strong>宿よりバス出発</strong>（※早朝出発のため乗り遅れ厳禁）</span></li>
-                                <li><span class="time">06:15</span> <span><strong>洞窟探検 集合</strong>（場所：道の駅なるさわ第3駐車場）</span></li>
+                                <li><span class="time">06:15</span> <span><strong>洞窟探検 集合</strong>（場所：<a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--brand-orange); font-weight: 900; text-decoration: underline;">道の駅なるさわ第3駐車場</a>）</span></li>
                                 <li><span class="time">12:30</span> <span><strong>石割山 集合</strong>（場所：石割山入口）</span></li>
                             </ul>
                         </div>
                         <div class="class-schedule-box koto">
-                            <div class="class-title"><i class="fa-solid fa-bus"></i> 【江東 クラス】</div>
+                            <div class="class-title"><i class="fa-solid fa-bus"></i> 【江東園】</div>
                             <ul class="class-timeline">
                                 <li><span class="time">07:30</span> <span><strong>宿よりバス出発</strong></span></li>
                                 <li><span class="time">07:45</span> <span><strong>石割山 集合</strong>（場所：石割山入口）</span></li>
-                                <li><span class="time">10:15</span> <span><strong>洞窟探検 集合</strong>（場所：道の駅なるさわ第3駐車場）</span></li>
+                                <li><span class="time">10:15</span> <span><strong>洞窟探検 集合</strong>（場所：<a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--brand-orange); font-weight: 900; text-decoration: underline;">道の駅なるさわ第3駐車場</a>）</span></li>
                             </ul>
                         </div>
                         <div class="class-schedule-box kachidoki">
-                            <div class="class-title"><i class="fa-solid fa-bus"></i> 【勝どき クラス】</div>
+                            <div class="class-title"><i class="fa-solid fa-bus"></i> 【勝どき園】</div>
                             <ul class="class-timeline">
                                 <li><span class="time">07:30</span> <span><strong>宿よりバス出発</strong></span></li>
                                 <li><span class="time">08:00</span> <span><strong>石割山 集合</strong>（場所：石割山入口）</span></li>
-                                <li><span class="time">11:45</span> <span><strong>洞窟探検 集合</strong>（場所：道の駅なるさわ第3駐車場）</span></li>
+                                <li><span class="time">11:45</span> <span><strong>洞窟探検 集合</strong>（場所：<a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--brand-orange); font-weight: 900; text-decoration: underline;">道の駅なるさわ第3駐車場</a>）</span></li>
                             </ul>
                         </div>
                     </div>
@@ -964,119 +984,36 @@
         </section>
 
         <section id="qrsystem" class="gear-box">
-            <div class="section-label">05. QR SYSTEM & STAFF</div>
+            <div class="section-label">05. STAFF ONLY</div>
             
-            <h3 style="margin-top: 30px;"><i class="fa-solid fa-qrcode"></i> 【一般保護者用】バス乗車用 マイQRコード取得</h3>
-            <p style="font-weight: 700; font-size: 13px; margin-bottom: 15px;">
-                参加者リスト（データベース）と連動し、固有の乗車QRコードを発行します。所属園とクラスを選択し、お名前を選ぶと宿と号車が自動入力されます。最後に、ご自身の「管理ID」を入力して発行してください。<br>
-                <span style="font-size: 11px; color: #555;">※一度設定すると端末に保存され、次回以降はこのページを開くだけで自動でQRコードが表示されます。</span>
-            </p>
-
-            <div id="qr-form-section" class="qr-card" style="background: #fdfdfc;">
-                <div class="form-group">
-                    <label><i class="fa-solid fa-school"></i> 1. 所属園</label>
-                    <select id="user-garden" class="form-control" onchange="onGardenChange()">
-                        <option value="">選択してください</option>
-                        <option value="江東園">江東園</option>
-                        <option value="有明園">有明園</option>
-                        <option value="勝どき園">勝どき園</option>
-                        <option value="海浜幕張園">海浜幕張園</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label><i class="fa-solid fa-users"></i> 2. クラス</label>
-                    <select id="user-class" class="form-control" disabled onchange="onClassChange()">
-                        <option value="">先に所属園を選択してください</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label><i class="fa-solid fa-user"></i> 3. 氏名 (名簿から選択)</label>
-                    <select id="user-name" class="form-control" disabled onchange="onNameChange()">
-                        <option value="">先にクラスを選択してください</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label><i class="fa-solid fa-bed"></i> 4. 宿 (自動取得)</label>
-                    <input type="text" id="user-host" class="form-control" placeholder="自動で入力されます" readonly disabled>
-                </div>
-                <div class="form-group">
-                    <label><i class="fa-solid fa-bus"></i> 5. 号車 (自動取得)</label>
-                    <input type="text" id="user-bus" class="form-control" placeholder="自動で入力されます" readonly disabled>
-                </div>
-                <div class="form-group" style="background: #fff; padding: 12px; border: 2px dashed var(--brand-olive); border-radius: 4px;">
-                    <label style="color: var(--brand-olive);"><i class="fa-solid fa-id-card"></i> 6. 管理ID (認証用パスワードとして使用)</label>
-                    <input type="text" id="user-auth" class="form-control" placeholder="例：V-01 (スプレッドシートの管理ID)" style="border-color: var(--brand-olive);">
-                    <p style="font-size: 11px; color: #666; font-weight: 700; margin-top: 4px;">※第三者による不正取得やなりすまし防止のため、ご自身の「管理ID」を入力してください。</p>
-                </div>
-
-                <button onclick="generateAndSaveQR()" class="gear-btn" style="background: var(--brand-orange); color: white; border-color: white; width: 100%; justify-content: center; margin: 10px 0 0 0;">
-                    <i class="fa-solid fa-qrcode" style="color: white;"></i> QRコードを生成・保存する
-                </button>
-                <p id="qr-error-msg" style="color: var(--alert-red); font-weight: 700; font-size: 13px; display: none; margin-top: 10px;"></p>
-            </div>
-
-            <div id="qr-display-section" class="qr-card" style="display: none;">
-                <div style="margin-bottom: 10px;">
-                    <span id="display-garden" style="background: var(--brand-olive); color: white; font-size: 12px; font-weight: 900; padding: 4px 12px; border-radius: 4px; margin-right: 5px;">有明園</span>
-                    <span id="display-class" style="background: var(--brand-black); color: white; font-size: 12px; font-weight: 900; padding: 4px 12px; border-radius: 4px;">シニア・ヴィクトリー</span>
-                </div>
-                <div class="qr-box">
-                    <img id="display-qr-img" src="" alt="乗車用QRコード">
-                </div>
-                <p id="display-name" style="font-size: 18px; font-weight: 900; letter-spacing: 1px; color: var(--brand-black);">山田 太郎</p>
-                <p id="display-info" style="font-size: 13px; color: #555; font-weight: 700; margin-bottom: 15px;">XX号車 / XXX 行き</p>
-                
-                <div style="border-top: 1px dashed #ccc; padding-top: 15px; margin-top: 10px;">
-                    <button onclick="resetQR()" class="gear-btn" style="background: #eee; color: #333; font-size: 12px; margin: 0; box-shadow: 2px 2px 0px var(--brand-black);">
-                        <i class="fa-solid fa-rotate-left" style="color: #333;"></i> 情報を再設定する
-                    </button>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 30px;"><i class="fa-solid fa-lock"></i> 【行事係保護者用】点呼システム＆マニュアル</h3>
+            <h3 style="margin-top: 0;"><i class="fa-solid fa-lock"></i> 行事係専用エリア</h3>
             
             <div id="staff-lock" class="lock-screen">
                 <i class="fa-solid fa-shield-halved" style="font-size: 40px; color: var(--brand-orange); margin-bottom: 15px;"></i>
                 <h4 style="color: white; font-size: 18px; font-weight: 900; margin-bottom: 5px;">STAFF ONLY AREA</h4>
-                <p style="font-size: 12px; font-weight: 700; color: #ccc;">行事係専用（点呼スキャナ・ダッシュボード）エリアです。<br>係用パスワードを入力してください。</p>
+                <p style="font-size: 12px; font-weight: 700; color: #ccc;">行事係専用エリアです。<br>係用パスワードを入力してください。</p>
                 <input type="password" id="password" class="pw-input" placeholder="PASSWORD"><br>
                 <button onclick="checkPassword()" class="gear-btn" style="background: var(--brand-orange); color: white; border-color: white;">ロック解除</button>
                 <p id="error-msg" class="error-msg">パスワードが正しくありません。</p>
             </div>
 
             <div id="staff-content">
-                <div class="hazard-box" style="background: #d4edda; border-color: #155724;">
-                    <h4 style="color: #155724;"><i class="fa-solid fa-circle-check"></i> 行事係モード 起動中</h4>
-                    <p style="font-size: 12px; font-weight: 700; color: #155724;">QR点呼スキャナおよびリアルタイムマスタ同期が有効になりました。</p>
-                </div>
-
-                <div class="staff-action-grid">
-                    <div class="staff-card">
-                        <i class="fa-solid fa-camera"></i>
-                        <h5>QR点呼スキャナ起動</h5>
-                        <p>カメラで園児・保護者のQRを連続スキャンし、リアルタイムチェックインを行います。</p>
-                        <a href="#" class="gear-btn" style="background: var(--brand-orange); color: white; width: 100%; justify-content: center; margin: 0;"><i class="fa-solid fa-play" style="color: white;"></i> スキャン開始</a>
-                    </div>
-
-                    <div class="staff-card">
-                        <i class="fa-solid fa-chart-pie"></i>
-                        <h5>点呼ダッシュボード</h5>
-                        <p>バス各車の「乗車済み／未乗車」一覧とリアルタイムの点呼進捗状況を確認します。</p>
-                        <a href="#" class="gear-btn" style="background: var(--brand-olive); color: white; width: 100%; justify-content: center; margin: 0;"><i class="fa-solid fa-table-list" style="color: white;"></i> 状況を見る</a>
-                    </div>
-                </div>
 
                 <h4 style="font-size: 15px; font-weight: 900; margin: 20px 0 10px 0; border-bottom: 2px solid var(--brand-black); padding-bottom: 5px;">
                     <i class="fa-solid fa-clipboard-user"></i> 行事係 管理メニュー
                 </h4>
                 <p style="font-size: 12px; font-weight: 700; margin-bottom: 10px; color:#555;">※閲覧・ダウンロード可能なマスターデータは、ログインアカウントまたは端末に紐づく所属園のもののみに制限されます（各園管理）。</p>
-                <a href="#" class="gear-btn" target="_blank"><i class="fa-solid fa-file-excel" style="color: #27ae60;"></i> 選択園の参加者マスタ(DB).XLSX</a>
-                <a href="#" class="gear-btn" target="_blank"><i class="fa-solid fa-file-lines"></i> 行事係用点呼マニュアル.PDF</a>
-                <a href="#" class="gear-btn" target="_blank"><i class="fa-solid fa-phone"></i> 係員間トランシーバー連絡網</a>
+                <a href="https://docs.google.com/spreadsheets/d/1Fdqzg8GmHULGc0Mbl4pO5wQck19vDNYMF1wHdExkn1E/edit?usp=drive_link" class="gear-btn" target="_blank"><i class="fa-solid fa-file-excel" style="color: #27ae60;"></i> 選択園の参加者マスタ(DB)スプレッドシート</a>
+                <a href="ariake/support/gyoji_timeschedule.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-lines"></i> 行事係タイムスケジュール</a>
+                <a href="ariake/support/gyoji_timeschedule.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-shuttle-space"></i> 洞窟探検 サポートフロー</a>
             </div>
         </section>
 
     </div>
+
+    <a href="#top" class="pagetop-btn" title="ページトップへ戻る">
+        <i class="fa-solid fa-chevron-up"></i>
+    </a>
 
     <script>
         /* =========================================================================
@@ -1123,7 +1060,6 @@
 
             if (savedGarden && savedClass && savedName && savedId) {
                 activeRosterData = FALLBACK_DUMMY_DATA[savedGarden] || [];
-                showQRDisplay(savedGarden, savedClass, savedName, savedHost, savedBus, savedId);
             }
         });
 
@@ -1133,6 +1069,8 @@
             const nameSelect = document.getElementById("user-name");
             const hostInput = document.getElementById("user-host");
             const busInput = document.getElementById("user-bus");
+
+            if(!gardenSelect) return;
 
             classSelect.innerHTML = '<option value="">読み込み中...</option>';
             nameSelect.innerHTML = '<option value="">先にクラスを選択してください</option>';
@@ -1248,84 +1186,6 @@
             } else {
                 hostInput.value = "";
                 busInput.value = "";
-            }
-        }
-
-        function generateAndSaveQR() {
-            const gardenName = document.getElementById("user-garden").value;
-            const className = document.getElementById("user-class").value;
-            const name = document.getElementById("user-name").value;
-            const host = document.getElementById("user-host").value;
-            const bus = document.getElementById("user-bus").value;
-            const authId = document.getElementById("user-auth").value.trim();
-            const errorMsg = document.getElementById("qr-error-msg");
-
-            if (!gardenName || !className || !name || !authId) {
-                errorMsg.textContent = "すべての項目を選択・入力してください。";
-                errorMsg.style.display = "block";
-                return;
-            }
-
-            const foundItem = activeRosterData.find(item => item.className === className && item.name === name);
-            if (!foundItem) {
-                errorMsg.textContent = "名簿データが見つかりません。";
-                errorMsg.style.display = "block";
-                return;
-            }
-
-            if (authId !== foundItem.id && authId !== "2026") {
-                errorMsg.textContent = "管理IDが正しくありません。ご自身の管理IDをご確認ください。";
-                errorMsg.style.display = "block";
-                return;
-            }
-
-            errorMsg.style.display = "none";
-
-            localStorage.setItem("buddy_qr_garden", gardenName);
-            localStorage.setItem("buddy_qr_class", className);
-            localStorage.setItem("buddy_qr_name", name);
-            localStorage.setItem("buddy_qr_host", host);
-            localStorage.setItem("buddy_qr_bus", bus);
-            localStorage.setItem("buddy_qr_id", foundItem.id);
-
-            showQRDisplay(gardenName, className, name, host, bus, foundItem.id);
-        }
-
-        function showQRDisplay(gardenName, className, name, host, bus, id) {
-            const qrDataString = `BUDDY2026_${id}_${name}`;
-            const qrImgUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(qrDataString)}&color=262626`;
-
-            document.getElementById("display-garden").textContent = gardenName;
-            document.getElementById("display-class").textContent = className;
-            document.getElementById("display-name").textContent = name;
-            document.getElementById("display-info").textContent = `${bus} / ${host} 行き`;
-            document.getElementById("display-qr-img").src = qrImgUrl;
-
-            document.getElementById("qr-form-section").style.display = "none";
-            document.getElementById("qr-display-section").style.display = "block";
-        }
-
-        function resetQR() {
-            if (confirm("設定されたQRコード情報をリセットして再入力しますか？")) {
-                localStorage.removeItem("buddy_qr_garden");
-                localStorage.removeItem("buddy_qr_class");
-                localStorage.removeItem("buddy_qr_name");
-                localStorage.removeItem("buddy_qr_host");
-                localStorage.removeItem("buddy_qr_bus");
-                localStorage.removeItem("buddy_qr_id");
-
-                document.getElementById("user-garden").value = "";
-                document.getElementById("user-class").innerHTML = '<option value="">先に所属園を選択してください</option>';
-                document.getElementById("user-class").disabled = true;
-                document.getElementById("user-name").innerHTML = '<option value="">先にクラスを選択してください</option>';
-                document.getElementById("user-name").disabled = true;
-                document.getElementById("user-host").value = "";
-                document.getElementById("user-bus").value = "";
-                document.getElementById("user-auth").value = "";
-
-                document.getElementById("qr-display-section").style.display = "none";
-                document.getElementById("qr-form-section").style.display = "block";
-                activeRosterData = [];
             }
         }
 
