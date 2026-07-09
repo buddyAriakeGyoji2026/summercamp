@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUDDY サマーキャンプ 2026 | 参加保護者情報ポータルサイト</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=800;900&family=Noto+Sans+JP:wght=500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #F0EDE5; 
+            --brand-black: #262626; 
+            --brand-olive: #4F5D4E; 
+            --brand-orange: #F26430; 
+            --brand-coyote: #B89B72; 
+            --card-bg: #FAFAF8;
+            --alert-red: #D9381E;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--brand-black);
+            line-height: 1.6;
+            background-image: radial-gradient(var(--brand-coyote) 1px, transparent 1px);
+            background-size: 20px 20px; 
+            padding-bottom: 80px;
+        }
+
+        .gear-box {
+            background: var(--card-bg);
+            border: 3px solid var(--brand-black);
+            border-radius: 8px;
+            box-shadow: 6px 6px 0px var(--brand-black);
+            padding: 25px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-label {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--brand-orange);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            letter-spacing: 2px;
+            padding: 4px 12px;
+            border: 3px solid var(--brand-black);
+            text-transform: uppercase;
+        }
+
+        header {
+            background-color: var(--brand-black);
+            color: var(--bg-color);
+            padding: 30px 20px 30px;
+            text-align: center;
+            border-bottom: 8px solid var(--brand-orange);
+            position: relative;
+        }
+
+        .logo-container {
+            margin: 0 auto 15px auto; 
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        header h1 {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 900;
+            font-size: 26px; 
+            line-height: 1.3;
+            margin-bottom: 0; 
+            letter-spacing: 1px;
+            color: #FFFFFF;
+        }
+
+        nav {
+            background-color: var(--brand-olive);
+            border-bottom: 3px solid var(--brand-black);
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--card-bg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 15px 18px;
+            border-right: 2px solid var(--brand-black);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a:first-child {
+            border-left: 2px solid var(--brand-black);
+        }
+
+        nav a.active, nav a:hover {
+            background-color: var(--brand-orange);
+            color: var(--brand-black);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 900;
+            margin: 25px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 3px solid var(--brand-black);
+            padding-bottom: 5px;
+        }
+
+        h3:first-of-type { margin-top: 10px; }
+
+        .principle-box {
+            background: var(--brand-black);
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 8px solid var(--alert-red);
+        }
+
+        .principle-box h4 {
+            color: var(--brand-orange);
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .penalty-box {
+            background: #FFF5F5;
+            border: 3px solid var(--alert-red);
+            padding: 15px;
+            margin-top: 15px;
+            color: var(--alert-red);
+            font-weight: 900;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) { .rules-grid { grid-template-columns: 1fr; } }
+
+        .do-box, .dont-box {
+            border: 3px solid var(--brand-black);
+            padding: 15px;
+            background: #fff;
+        }
+        .do-box { border-top: 8px solid var(--brand-olive); }
+        .dont-box { border-top: 8px solid var(--alert-red); }
+
+        .do-box h4 { color: var(--brand-olive); font-weight: 900; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+        .dont-box h4 { color: var(--alert-red); font-weight: 900; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+
+        .rules-list { padding-left: 20px; font-weight: 700; font-size: 13px; list-style-type: square; }
+        .rules-list.forbidden { padding-left: 0; list-style: none; }
+        .rules-list.forbidden li { margin-bottom: 12px; }
+        .rules-list li { margin-bottom: 8px; }
+
+        .critical-alert-box {
+            background: #FFEBEB;
+            border: 3px solid var(--alert-red);
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            box-shadow: 2px 2px 0px var(--alert-red);
+        }
+
+        .packing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) { .packing-grid { grid-template-columns: 1fr; } }
+        .packing-category {
+            background: #fff;
+            border: 2px solid var(--brand-black);
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .packing-category h4 {
+            font-size: 14px;
+            font-weight: 900;
+            color: var(--brand-olive);
+            border-bottom: 2px solid var(--brand-olive);
+            margin-bottom: 10px;
+            padding-bottom: 3px;
+        }
+        .packing-list {
+            list-style: none;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .packing-list li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+        .packing-list li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #777;
+        }
+        .packing-list li.required::before {
+            content: "☑";
+            color: var(--alert-red);
+        }
+        .packing-list li strong {
+            color: var(--brand-black);
+        }
+        .badge-req {
+            background: var(--alert-red);
+            color: white;
+            font-size: 10px;
+            padding: 1px 4px;
+            border-radius: 3px;
+            margin-left: 4px;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            border: 2px solid var(--brand-black);
+        }
+
+        .spec-table th, .spec-table td {
+            padding: 10px;
+            border: 2px solid var(--brand-black);
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .spec-table th {
+            background-color: var(--brand-olive);
+            color: white;
+        }
+        .spec-table td:first-child {
+            background-color: #f1f5f0;
+            font-weight: 900;
+        }
+
+        .gear-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card-bg);
+            border: 3px solid var(--brand-black);
+            color: var(--brand-black);
+            padding: 10px 18px;
+            font-weight: 900;
+            text-decoration: none;
+            box-shadow: 4px 4px 0px var(--brand-black);
+            transition: all 0.1s;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            font-size: 13px;
+            width: calc(100% - 10px);
+        }
+
+        .gear-btn:active {
+            box-shadow: 0px 0px 0px var(--brand-black);
+            transform: translate(4px, 4px);
+        }
+
+        .gear-btn i { color: var(--brand-orange); font-size: 16px; }
+
+        .emergency-box {
+            background: #fff;
+            border: 3px dashed var(--brand-orange);
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .emergency-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 900;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            font-size: 14px;
+        }
+        .emergency-item:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+
+        .tel-btn {
+            background: var(--brand-black);
+            color: white;
+            text-decoration: none;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .hazard-box {
+            background: #FFD166;
+            border: 3px solid var(--brand-black);
+            padding: 15px;
+            margin: 15px 0;
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0,0,0,0.05) 10px,
+                rgba(0,0,0,0.05) 20px
+            );
+        }
+        .hazard-box.red {
+            background: #ffcccc;
+            border-color: var(--alert-red);
+        }
+        .hazard-box h4 {
+            color: var(--brand-black);
+            font-size: 15px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hazard-box.red h4 { color: var(--alert-red); }
+
+        /* タイムライン */
+        .route-map {
+            position: relative;
+            padding-left: 25px;
+            margin-top: 15px;
+        }
+        .route-map::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--brand-black);
+        }
+        .day-marker {
+            background: var(--brand-black);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            display: inline-block;
+            padding: 6px 14px;
+            margin: 25px 0 15px -25px;
+            position: relative;
+            z-index: 2;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border: 2px solid var(--brand-black);
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+        }
+        .route-point {
+            position: relative;
+            margin-bottom: 15px;
+            background: #fff;
+            border: 2px solid var(--brand-black);
+            padding: 12px 15px;
+        }
+        .route-point::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 15px;
+            width: 14px;
+            height: 14px;
+            background: var(--brand-orange);
+            border: 3px solid var(--brand-black);
+            border-radius: 50%;
+        }
+        .time-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: var(--brand-orange);
+            display: inline-block;
+            font-size: 14px;
+            background: var(--brand-black);
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-bottom: 4px;
+        }
+        .event-name { font-weight: 900; font-size: 15px; display: block; color: var(--brand-black); }
+        .event-desc { font-weight: 700; font-size: 13px; color: #555; margin-top: 4px; line-height: 1.5; }
+
+        /* 園別タイムラインパネル */
+        .class-schedule-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .class-schedule-box {
+            border: 2px solid var(--brand-black);
+            background: #fdfdfc;
+            padding: 12px;
+            border-left: 6px solid var(--brand-olive);
+        }
+        .class-schedule-box.koto { border-left-color: var(--brand-coyote); }
+        .class-schedule-box.kachidoki { border-left-color: var(--brand-orange); }
+        
+        .class-title {
+            font-weight: 900;
+            font-size: 14px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--brand-black);
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 4px;
+        }
+        .class-timeline {
+            list-style: none;
+            padding-left: 5px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .class-timeline li {
+            margin-bottom: 4px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .class-timeline li span.time {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: var(--brand-orange);
+            min-width: 45px;
+        }
+
+        /* QRコード取得・表示エリア */
+        .qr-card {
+            background: #fff;
+            border: 3px solid var(--brand-black);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .qr-box {
+            width: 180px;
+            height: 180px;
+            margin: 15px auto;
+            border: 4px solid var(--brand-black);
+            padding: 10px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .qr-box img { width: 100%; height: 100%; display: block; }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 900;
+            margin-bottom: 5px;
+            color: var(--brand-black);
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--brand-black);
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            background: #fdfdfc;
+            border-radius: 4px;
+            outline: none;
+        }
+        .form-control:focus {
+            border-color: var(--brand-orange);
+            background: #fff;
+        }
+        .form-control:disabled {
+            background: #eee;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        /* 制限エリア */
+        .lock-screen {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--brand-black);
+            color: white;
+            border: 3px solid var(--brand-orange);
+        }
+        .pw-input {
+            width: 100%;
+            max-width: 250px;
+            padding: 12px;
+            background: transparent;
+            border: 2px solid var(--brand-coyote);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            text-align: center;
+            margin: 20px 0;
+            outline: none;
+        }
+        .pw-input:focus { border-color: var(--brand-orange); }
+        .error-msg { color: var(--brand-orange); font-weight: 700; display: none; margin-top: 10px; }
+        #staff-content { display: none; }
+
+        .staff-action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) { .staff-action-grid { grid-template-columns: 1fr; } }
+
+        .staff-card {
+            background: #fff;
+            border: 2px solid var(--brand-black);
+            padding: 15px;
+            text-align: center;
+        }
+        .staff-card i { font-size: 32px; color: var(--brand-olive); margin-bottom: 10px; }
+        .staff-card h5 { font-size: 15px; font-weight: 900; margin-bottom: 5px; }
+        .staff-card p { font-size: 12px; color: #666; font-weight: 700; margin-bottom: 15px; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="buddy_logo.png" alt="BUDDY SUMMER CAMP">
+        </div>
+        <h1>BUDDY サマーキャンプ 2026<br>保護者情報ポータル</h1>
+    </header>
+
+    <nav>
+        <a href="#overview" class="nav-link active"><i class="fa-solid fa-campground"></i> 大原則・概要</a>
+        <a href="#rules" class="nav-link"><i class="fa-solid fa-triangle-exclamation"></i> 行動・持ち物ルール</a>
+        <a href="#stay" class="nav-link"><i class="fa-solid fa-bed"></i> 宿泊・食事</a>
+        <a href="#schedule" class="nav-link"><i class="fa-solid fa-route"></i> スケジュール</a>
+        <a href="#qrsystem" class="nav-link"><i class="fa-solid fa-qrcode"></i> QR点呼・係専用</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="overview" class="gear-box">
+            <div class="section-label">01. OVERVIEW</div>
+            
+            <div class="principle-box">
+                <h4><i class="fa-solid fa-flag"></i> 大原則：『すべては子どもたちの笑顔と安全のために』</h4>
+                <p style="font-weight: 700; font-size: 14px;">子どもたちの安全と最高の思い出づくりを第一に考えています。許可のない見学・接触、違法駐車、近隣への迷惑となる行為などは、固くお断りいたします。皆さまのご理解とご協力をお願いいたします。</p>
+                <div class="penalty-box">
+                    <i class="fa-solid fa-triangle-exclamation"></i> 【ルール違反時のペナルティ】<br>
+                    <span style="font-size: 13px; font-weight: 700; color: var(--brand-black);">保護者のルール違反が確認された場合には、大会規定に基づき、お子様が所属する園の全チームの3日目リレーに追加タイム（ペナルティ）が加算されます。子どもたちのこれまでの努力を無駄にしないため、また、安心して全力を発揮できるよう、ルールの遵守にご協力をお願いいたします。</span>
+                </div>
+            </div>
+
+            <h3><i class="fa-solid fa-phone-volume"></i> 連絡網・緊急対応</h3>
+            <p style="font-weight: 700; font-size: 13px; margin-bottom: 5px;">急な予定変更等は公式アプリ『らくらく連絡網+』にてリアルタイム通知いたします。</p>
+            <p style="font-size: 11px; font-weight: 700; color: var(--alert-red); margin-bottom: 10px;">※キャンプ前のお問い合わせは、各所属園へご連絡ください。</p>
+            <div class="emergency-box">
+                <div class="emergency-item" style="border-bottom: none; padding-bottom: 0;">
+                    <span><i class="fa-solid fa-phone" style="color: var(--brand-orange);"></i> キャンプ期間中のお問い合わせ先：はるひ野園職員・上野</span>
+                    <span style="font-size: 16px; letter-spacing: 1px;">090-5196-2710</span>
+                </div>
+            </div>
+
+            <h3><i class="fa-solid fa-file-pdf"></i> 園公式配布資料一覧</h3>
+            <p style="font-weight: 700; font-size: 13px; margin-bottom: 10px;">サマーキャンプに関して配布された公式資料および各種申請フォームです。必ず事前にご確認ください。</p>
+            
+            <a href="①２０２６ 山中湖サマーキャンプ シニア保護者参加のお知らせ_260421.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ① ２０２６ 山中湖サマーキャンプ シニア保護者参加のお知らせ（2026年4月21日 配信）</a>
+            
+            <a href="②サマーキャンプ現地解散の確認_260428.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ② サマーキャンプ現地解散の確認（2026年4月28日 配信）</a>
+            
+            <a href="③ハバディサマーキャンプ2026_260527.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ③ バディサマーキャンプ２０２６（2026年5月27日 配信）</a>
+            
+            <a href="④サマーキャンプ 追加のご請求に関するお知らせ_260617.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ④ サマーキャンプ 追加のご請求に関するお知らせ（2026年6月17日 配信）</a>
+            
+            <a href="⑤2026バディサマーキャンプ_260618.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑤ ２０２６バディサマーキャンプ［日程・宿泊・集合場所案内］（2026年6月18日 配信）</a>
+            
+            <a href="⑥2026サマーキャンプ荷物の詰め方_260618.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑥ ２０２６サマーキャンプ荷物の詰め方★シニア★（2026年6月18日 配信）</a>
+            
+            <a href="⑦2026バディ幼児サマーキャンプ体調確認表_20260618.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑦ ２０２６サマーキャンプ体調確認表（2026年6月18日 配信）</a>
+            
+            <a href="⑧らくらく連絡網＋の使用について_260623.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑧ らくらく連絡網＋の使用について（2026年6月23日 配信）</a>
+            
+            <a href="⑨サマーキャンプに参加される保護者の方へ_260702.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑨ サマーキャンプに参加される保護者の方へ［ルール・日程詳細・ペナルティ規定］（2026年7月2日 配信）</a>
+        </section>
+
+        <section id="rules" class="gear-box">
+            <div class="section-label">02. RULES & PACKING</div>
+            
+            <h3 style="margin-top: 0;"><i class="fa-solid fa-list-check"></i> 保護者の遵守事項と絶対禁止事項</h3>
+            <p style="font-weight: 700; font-size: 13px; margin-bottom: 15px;">皆様のご理解とご協力が不可欠です。以下のルールを必ずお守りください。</p>
+
+            <!-- 最重要項目を最上部に特大で目立たせて配置 -->
+            <div class="critical-alert-box">
+                <span style="display: block; font-size: 16px; font-weight: 900; color: var(--alert-red); text-align: center; margin-bottom: 4px;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> 【最重要・徹底遵守】 <i class="fa-solid fa-triangle-exclamation"></i>
+                </span>
+                <p style="font-size: 15px; font-weight: 900; color: var(--brand-black); line-height: 1.5; text-align: center; background: #fff; padding: 10px; border: 2px solid var(--alert-red);">
+                    保護者確認証（参加証）の【常時着用】<br>
+                    <span style="font-size: 12px; font-weight: 700; color: #555; display: block; margin-top: 4px;">※園から配布される参加証（保護者確認証）は、現地で常に見えるところに身に着けてください。他者への譲渡・貸出は厳禁です。</span>
+                </p>
+            </div>
+
+            <div class="rules-grid">
+                <div class="do-box">
+                    <h4><i class="fa-solid fa-circle-check"></i> 遵守事項</h4>
+                    <ul class="rules-list">
+                        <li><strong>緊急時連絡体制の確保</strong><br><span style="font-size: 11px; color: #555;">※緊急時に備え、常に電話が繋がる状態にしてください。</span></li>
+                        <li><strong>指定場所からの撮影</strong><br><span style="font-size: 11px; color: #555;">※アルバム・DVD係は指定のビブスまたは腕章を必ず着用すること。</span></li>
+                    </ul>
+                </div>
+
+                <div class="dont-box">
+                    <h4><i class="fa-solid fa-circle-xmark"></i> 絶対禁止事項</h4>
+                    <ul class="rules-list forbidden" style="font-weight: 900; font-size: 13px;">
+                        <li><span style="color: var(--alert-red); font-size: 15px; font-weight: 900;">✖️</span> <strong>特定の子どもへの【声掛け・接触】</strong></li>
+                        <li><span style="color: var(--alert-red); font-size: 15px; font-weight: 900;">✖️</span> <strong>園児宿舎内への【立ち入り】</strong><br><span style="font-size: 11px; color: #555; font-weight: 700; padding-left: 20px; display: block;">※食事、生活、寝顔の撮影も含め一切禁止。</span></li>
+                        <li><span style="color: var(--alert-red); font-size: 15px; font-weight: 900;">✖️</span> <strong>写真・動画の【SNS・LINE投稿】</strong><br><span style="font-size: 11px; color: #555; font-weight: 700; padding-left: 20px; display: block;">※個人撮影データのネット公開は厳禁。</span></li>
+                        <li><span style="color: var(--alert-red); font-size: 15px; font-weight: 900;">✖️</span> <strong>乗り入れ禁止区域への【車両進入・路上駐車】</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3><i class="fa-solid fa-bag-shopping"></i> 保護者の持ち物 ＆ イベント規定</h3>
+            <div class="hazard-box" style="margin-top: 5px; background: #FFF9F0; border-color: var(--brand-coyote);">
+                <h4><i class="fa-solid fa-tag" style="color: var(--brand-orange);"></i> 荷物に関するルール</h4>
+                <p style="font-size: 12px; font-weight: 700; line-height: 1.5;">
+                    ・バッグの大きさに制限はありません。<strong>すべての荷物に【各園カラーテープ】で『園名・氏名（⚪︎⚪︎）』を記載</strong>し、見えやすい位置に必ず貼付してください。<br>
+                    <span style="color: var(--alert-red);">※園カラー以外のテープは使用不可とします。</span>
+                </p>
+            </div>
+
+            <div class="packing-grid">
+                <div class="packing-category">
+                    <h4>富士登山</h4>
+                    <ul class="packing-list">
+                        <li class="required"><strong>登山に適した靴</strong> <span class="badge-req">必須</span></li>
+                        <li class="required"><strong>雨具（上下セパレートのもの）</strong> <span class="badge-req">必須</span></li>
+                        <li class="required"><strong>防寒着（パーカー/ウインドブレーカー）</strong> <span class="badge-req">必須</span></li>
+                        <li>帽子 / サングラス / 日焼け止め</li>
+                        <li>半袖・長袖（UVカット、速乾タイプ推奨）</li>
+                        <li>携帯トイレ（各自2〜3個）</li>
+                        <li>タオル（汗拭きや日よけ用）</li>
+                        <li>小銭（トイレ1回100〜300円、チップ制のため）</li>
+                        <li>トレッキングポール（あると下山が楽になります）</li>
+                        <li>溶けるティッシュ（トイレ用）</li>
+                        <li>携帯酸素 <br><span style="font-size: 10px; color:#555;">※園児に勝手に使用させない・興味を持たせないよう配慮すること</span></li>
+                        <li>入山申請コード（吉田ルート用）</li>
+                    </ul>
+                </div>
+
+                <div class="packing-category">
+                    <h4>洞窟探検・石割山</h4>
+                    <ul class="packing-list">
+                        <li>歩きやすい服装、靴、帽子</li>
+                        <li>虫除け / 日焼け止め / ウェットティッシュ</li>
+                        <li>携帯トイレ（各自2〜3個）</li>
+                        <li>昼食（食べやすいもの）・飲み物</li>
+                        <li class="required"><strong>上下セパレートの雨具</strong> <span class="badge-req">雨天時必須</span><br><span style="font-size: 10px; color:#555;">※雨天時は傘の使用不可</span></li>
+                        
+                        <li style="list-style:none; margin-top:10px; padding-left:0; font-weight:900; color:var(--brand-orange);">【洞窟内部への入洞希望者のみ】</li>
+                        <li class="required"><strong>ヘルメット</strong> <span class="badge-req">必須</span></li>
+                        <li class="required"><strong>防寒着</strong>（内部は気温0℃前後）</li>
+                        <li class="required"><strong>手袋</strong>（スキー用手袋がおすすめ）</li>
+                        <li class="required"><strong>ヘッドライト</strong></li>
+                        <li>雨具上下 または スキーウェア（水滴で濡れるため）</li>
+                        <li><span style="font-size:11px; color:#555;">※足元に水たまりが多いため登山靴がおすすめ</span></li>
+                    </ul>
+                </div>
+
+                <div class="packing-category">
+                    <h4>▪️ キャンプファイヤー</h4>
+                    <ul class="packing-list">
+                        <li class="required"><strong>ヘッドライトまたは懐中電灯</strong><br><span style="font-size: 10px; color:#555;">※宿から会場への移動時は足元が大変暗くなります</span></li>
+                        <li>学年Tシャツ</li>
+                        <li>タオル</li>
+                    </ul>
+                    <h4 style="margin-top: 15px;">▪️ クロスカントリー</h4>
+                    <ul class="packing-list">
+                        <li class="required"><strong>帽子</strong><br><span style="font-size: 10px; color:#555;">※日除けがないもの</span></li>
+                    </ul>
+                </div>
+
+                <div class="packing-category">
+                    <h4>ホテル・旅館（宿泊アメニティ）</h4>
+                    <ul class="packing-list">
+                        <li class="required"><strong>シャンプー・石鹸などのアメニティ類</strong></li>
+                        <li class="required"><strong>バスタオル・フェイスタオル</strong><br><span style="font-size: 10px; color:#555;">※エクシブ以外はタオル類の備え付けが一切ありません（エクシブも未確定のため持参推奨）</span></li>
+                        <li><span style="font-size: 11px; color: var(--alert-red);">※全宿共通でルームサービスや部屋の無料の「水」はありません。</span></li>
+                    </ul>
+                </div>
+            </div>
+            <p style="font-size: 11px; font-weight: 700; color: #555; margin-top: 10px; text-align: right;">※全ての持ち物に「園名・名前」の記名を徹底してください。</p>
+        </section>
+
+        <section id="stay" class="gear-box">
+            <div class="section-label">03. ACCOMMODATION</div>
+            
+            <h3 style="margin-top: 0;"><i class="fa-solid fa-hotel"></i> 宿泊・食事スケジュール規定</h3>
+            <p style="font-weight: 700; font-size: 13px; margin-bottom: 10px;">
+                メイン会場・園児宿である「リゾートin愛」を中心とした各宿のスケジュールです。<br>
+                <span style="color: var(--alert-red);">※規定外の宿を個人手配しての参加は固く禁じます。エクシブの部屋番号は当日受付時にご案内します。</span>
+            </p>
+
+            <div style="overflow-x: auto;">
+                <table class="spec-table">
+                    <tr>
+                        <th>宿名</th>
+                        <th>Day1 夕食</th>
+                        <th>Day2 朝/昼食</th>
+                        <th>Day2 夕食</th>
+                        <th>Day3 朝食</th>
+                        <th>チェックアウト</th>
+                    </tr>
+                    <tr>
+                        <td>エクシブ山中湖</td>
+                        <td>18:00~</td>
+                        <td>お弁当</td>
+                        <td>17:45~</td>
+                        <td>7:30~</td>
+                        <td>11:00厳守</td>
+                    </tr>
+                    <tr>
+                        <td>花だより</td>
+                        <td>19:00~</td>
+                        <td>お弁当</td>
+                        <td>17:00~</td>
+                        <td>7:00~</td>
+                        <td style="color: var(--alert-red); font-weight: 900;">10:00厳守</td>
+                    </tr>
+                    <tr>
+                        <td>グローバル富士</td>
+                        <td>19:00~</td>
+                        <td>お弁当</td>
+                        <td>17:00~</td>
+                        <td>7:00~</td>
+                        <td>11:00厳守</td>
+                    </tr>
+                    <tr>
+                        <td>吉政荘</td>
+                        <td>19:00~</td>
+                        <td>お弁当</td>
+                        <td>17:00~</td>
+                        <td>7:00~</td>
+                        <td>11:00厳守</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="hazard-box">
+                <h4><i class="fa-solid fa-box-archive"></i> お弁当受取 ＆ チェックアウト重要ルール</h4>
+                <ul class="rules-list" style="margin-bottom: 0;">
+                    <li><strong>Day2 朝食・昼食：</strong>朝5:15までに各宿ロビーで受取（※昼食はA・Bコース申込者のみ、コンビニ手配の軽食となります）。</li>
+                    <li><strong>Day3 昼食：</strong>クロスカントリー終了後、会場でお弁当を受取。</li>
+                    <li><strong>花だより宿泊者：</strong>チェックアウトは【10:00厳守】です。</li>
+                    <li><strong>全宿共通：</strong>有料サービスの精算は各部屋の代表者が一括でお支払いください。鍵の紛失には十分にご注意ください。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="schedule" class="gear-box">
+            <div class="section-label">04. SCHEDULE</div>
+            
+            <h3 style="margin-top: 0;"><i class="fa-solid fa-clock-rotate-left"></i> 全日程タイムライン ＆ 各日規定</h3>
+            <p style="font-weight: 700; font-size: 13px; margin-bottom: 15px;">
+                2日目は<strong>所属する園（有明・海浜幕張／江東／勝どき）によってバス出発時間およびプログラムの順序・集合時間が異なります</strong>。必ずご自身の園のスケジュールをご確認ください。
+            </p>
+
+            <div class="route-map">
+                <div class="day-marker">DAY 1 [ 富士登山 ]</div>
+                
+                <div class="hazard-box red" style="margin-top: 5px;">
+                    <h4><i class="fa-solid fa-car-burst"></i> 【厳重警告】富士登山マイカー規制に関する注意事項</h4>
+                    <p style="font-size: 13px; font-weight: 700;">
+                        ▲ <strong>富士山五合目：</strong>サマーキャンプ期間中はマイカー規制期間のため、自家用車での五合目への乗り入れ・アクセスは【一切不可】となっています。現地集合・解散コース（交通利用なし）を選択されている保護者様は、ご自身でシャトルバス等のアクセス方法を事前に確保・手配の上、登山開始時間（8:00）までに必ず五合目へお集まりください。<br>
+                        <span style="font-size: 12px; display: block; margin-top: 5px; color: var(--brand-black);">
+                            ※詳しくは、<a href="https://www.fujisan-climb.jp/info/2181/" target="_blank" style="color: var(--brand-orange); font-weight:900;">富士登山オフィシャルサイト</a>、または<a href="https://tollgate.securesite.jp/wp/road/subaruline/eigyoinfo/mycarkisei/" target="_blank" style="color: var(--brand-orange); font-weight:900;">山梨県道路公社サイト</a>をご参照ください。
+                        </span>
+                    </p>
+                </div>
+
+                <div class="route-point">
+                    <span class="time-tag">08:00</span>
+                    <span class="event-name">富士山5合目 出発</span>
+                    <p class="event-desc">
+                        園児たちの富士登山がスタートします。子供たちが安心して登山に臨めるよう、保護者の皆様はルールを遵守し、安全第一で行動・見守りにご協力をお願いいたします。<br>
+                        <span style="color: var(--alert-red); font-size: 12px; display: block; margin-top: 4px;">
+                            ※登山する方は事前に<a href="https://www.fujisan-climb.jp/things-to-know-before-climbing/" target="_blank" style="color: var(--brand-orange); font-weight:900;">富士登山オフィシャルサイト【登山前に知っておくべきこと】</a>をご確認ください。
+                        </span>
+                    </p>
+                </div>
+                <div class="route-point">
+                    <span class="time-tag">18:00〜19:00頃</span>
+                    <span class="event-name">各宿泊施設にて夕食</span>
+                    <p class="event-desc">
+                        宿により夕食開始時間が異なります。<span style="color: var(--alert-red); font-weight: 900;">時間に遅れないよう「15分前行動」</span>をお願いいたします。<br>
+                        <strong>【各宿の夕食時間】</strong> エクシブ山中湖 18:00~ ／ 花だより 19:00~ ／ グローバル富士 19:00~ ／ 吉政荘 19:00~
+                    </p>
+                </div>
+
+                <div class="day-marker" style="margin-top: 35px;">DAY 2 [ 洞窟探検・石割山 ]</div>
+                
+                <div class="hazard-box red" style="margin-top: 5px;">
+                    <h4><i class="fa-solid fa-triangle-exclamation"></i> 【厳重警告】道の駅なるさわ での駐車ルール</h4>
+                    <p style="font-size: 13px; font-weight: 700;">▲ <strong>道の駅なるさわ第3駐車場（洞窟探検集合場所）：</strong>道の駅に駐車したまま車両を離れた場合、警察へ通報されます。駐車中は必ずどなたかが車内に残るようお願いいたします。</p>
+                </div>
+
+                <div class="route-point">
+                    <span class="time-tag">朝 05:15 まで</span>
+                    <span class="event-name">朝食・昼食（お弁当）受取</span>
+                    <p class="event-desc">朝5:15までに各宿のロビーにてお弁当をお受け取りください。（※昼食のお弁当はA・Bコース申込者のみ配布となります）</p>
+                </div>
+
+                <div class="route-point" style="background: #fffef8; border-color: var(--brand-olive);">
+                    <span class="time-tag" style="background: var(--brand-olive);">園別 昼間プログラム スケジュール</span>
+                    <span class="event-name" style="margin-bottom: 8px;">所属園ごとのバス出発・集合時間</span>
+                    
+                    <div class="class-schedule-container">
+                        <div class="class-schedule-box">
+                            <div class="class-title"><i class="fa-solid fa-bus"></i> 【有明・海浜幕張 クラス】</div>
+                            <ul class="class-timeline">
+                                <li><span class="time">05:30</span> <span><strong>宿よりバス出発</strong>（※早朝出発のため乗り遅れ厳禁）</span></li>
+                                <li><span class="time">06:15</span> <span><strong>洞窟探検 集合</strong>（場所：道の駅なるさわ第3駐車場）</span></li>
+                                <li><span class="time">12:30</span> <span><strong>石割山 集合</strong>（場所：石割山入口）</span></li>
+                            </ul>
+                        </div>
+                        <div class="class-schedule-box koto">
+                            <div class="class-title"><i class="fa-solid fa-bus"></i> 【江東 クラス】</div>
+                            <ul class="class-timeline">
+                                <li><span class="time">07:30</span> <span><strong>宿よりバス出発</strong></span></li>
+                                <li><span class="time">07:45</span> <span><strong>石割山 集合</strong>（場所：石割山入口）</span></li>
+                                <li><span class="time">10:15</span> <span><strong>洞窟探検 集合</strong>（場所：道の駅なるさわ第3駐車場）</span></li>
+                            </ul>
+                        </div>
+                        <div class="class-schedule-box kachidoki">
+                            <div class="class-title"><i class="fa-solid fa-bus"></i> 【勝どき クラス】</div>
+                            <ul class="class-timeline">
+                                <li><span class="time">07:30</span> <span><strong>宿よりバス出発</strong></span></li>
+                                <li><span class="time">08:00</span> <span><strong>石割山 集合</strong>（場所：石割山入口）</span></li>
+                                <li><span class="time">11:45</span> <span><strong>洞窟探検 集合</strong>（場所：道の駅なるさわ第3駐車場）</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="route-point">
+                    <span class="time-tag">17:00〜17:45頃</span>
+                    <span class="event-name">各宿泊施設にて夕食</span>
+                    <p class="event-desc">
+                        キャンプファイヤーに備え、早めの夕食となります。<br>
+                        <span style="color: var(--alert-red); font-weight: 900;">時間に遅れないよう「15分前行動」</span>をお願いいたします。<br>
+                        <strong>【各宿の夕食時間】</strong> 花だより 17:00~ ／ グローバル富士 17:00~ ／ 吉政荘 17:00~ ／ エクシブ山中湖 17:45~
+                    </p>
+                </div>
+
+                <div class="day-marker" style="margin-top: 35px;">DAY 2 NIGHT [ キャンプファイヤー ]</div>
+                
+                <div class="hazard-box" style="background: #e8f4f8; border-color: #2b7a78; margin-top: 5px;">
+                    <h4 style="color: #2b7a78;"><i class="fa-solid fa-person-walking"></i> 移動の基本：子どもの移動優先</h4>
+                    <p style="font-size: 13px; font-weight: 700;">各宿から<strong>「徒歩」</strong>で来場してください（※吉政荘は全員徒歩となります）。<br>
+                    <span style="color: var(--brand-black);">※例外規定：妊婦・乳幼児連れの方のみ送迎バスを運行いたします（<strong>各宿 18:30 玄関前集合</strong>）。</span></p>
+                </div>
+
+                <div class="hazard-box red">
+                    <h4><i class="fa-solid fa-ban"></i> 会場（リゾートin愛グラウンド）での絶対禁止事項</h4>
+                    <ul class="rules-list forbidden" style="margin-bottom: 0; font-weight: 700; font-size: 13px;">
+                        <li><span style="color: var(--alert-red);">✖️</span> <strong>車両の乗り入れ：</strong>会場への自家用車の乗り入れは禁止です。</li>
+                        <li><span style="color: var(--alert-red);">✖️</span> <strong>園児への接触：</strong>園児への声掛けや接触は禁止です。</li>
+                        <li><span style="color: var(--alert-red);">✖️</span> <strong>撮影制限：</strong>輪の内側での撮影は、各園アルバム/DVD係各1名（BC別）のみ許可されています。必ずスタッフの指示に従ってください。</li>
+                    </ul>
+                </div>
+
+                <div class="day-marker" style="margin-top: 35px;">DAY 3 [ クロスカントリー ＆ 現地引き取り ]</div>
+
+                <div class="route-point">
+                    <span class="time-tag">08:00〜08:30頃</span>
+                    <span class="event-name">各宿チェックアウト完了後、玄関前集合</span>
+                    <p class="event-desc">
+                        移動：徒歩推奨（バス送迎あり ※吉政荘は徒歩のみ） ／ 荷物管理：観光バス帰宅者はリゾートin愛へ持参
+                    </p>
+                </div>
+
+                <div class="hazard-box">
+                    <h4><i class="fa-solid fa-flag-checkered"></i> クロスカントリー応援＆撮影ルール</h4>
+                    <ul class="rules-list forbidden" style="margin-bottom: 0; font-weight: 700; font-size: 13px;">
+                        <li><span style="color: var(--alert-red);">✖️</span> <strong>伴走禁止：</strong>レースの妨げとなる伴走や並走などの行為は禁止です。</li>
+                        <li><span style="color: var(--alert-red);">✖️</span> <strong>鳴り物禁止：</strong>メガホンなど、音の出る応援グッズは使用できません。</li>
+                        <li><span style="color: #2b7a78;">✓</span> <strong>撮影ルール：</strong>トラック内での撮影は、各園アルバム/DVD係各1名のみ可能です（指定場所のみ）。次走者待機場所（大会本部付近）は立ち入り禁止です。なお、応援席からの撮影は全員可能です。</li>
+                    </ul>
+                </div>
+
+                <div class="hazard-box red">
+                    <h4><i class="fa-solid fa-car"></i> リゾートin愛(会場)及び周辺道路への駐停車【厳禁】</h4>
+                    <p style="font-size: 13px; font-weight: 700;">閉村式後は大変混雑するため、自家用車の乗り入れは一切できません。<strong>一時停車・路駐もペナルティの対象となります（各園にペナルティ加算）。</strong>必ず【公共の駐車場】をご利用の上、徒歩で移動してください。</p>
+                </div>
+
+                <div class="route-point" style="border-color: var(--brand-orange); background: #fffaf0;">
+                    <span class="time-tag">11:00頃開始</span>
+                    <span class="event-name" style="color: var(--brand-orange); font-weight: 900;">閉村式終了後の現地引き取りフロー（3ステップ）</span>
+                    <ol style="padding-left: 20px; font-size: 13px; font-weight: 700; margin-top: 8px;">
+                        <li style="margin-bottom: 6px;"><strong>1. お子様の引き取り：</strong>事前申請された保護者のみ引き取り可能です。必ず園職員へお声掛けのうえ、お子様を引き取ってください。</li>
+                        <li style="margin-bottom: 6px;"><strong>2. お弁当の受け取り・解散：</strong>閉村式終了後、お弁当を受け取り、速やかにご帰宅ください。会場内での滞留・食事はできません。</li>
+                        <li><strong>3. 忘れ物の最終確認：</strong>保護者・お子様の荷物に忘れ物がないことを確認してからお帰りください。</li>
+                    </ol>
+                </div>
+
+                <div class="route-point">
+                    <span class="time-tag">例外ルート</span>
+                    <span class="event-name">他学年兄弟のお迎えフロー<br><span style="font-size: 12px; color: #666;">①リゾートin愛でシニアを引き取り → ②各学年の宿へ移動し引き取り<br><strong>※重要例外：ミドル・セミジュニアの宿への車の進入は【許可】されています。</strong>（観光バス出発時刻 12:15）</span></span>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="qrsystem" class="gear-box">
+            <div class="section-label">05. QR SYSTEM & STAFF</div>
+            
+            <h3 style="margin-top: 0;"><i class="fa-solid fa-qrcode"></i> 【一般保護者用】バス乗車用 マイQRコード取得</h3>
+            <p style="font-weight: 700; font-size: 13px; margin-bottom: 15px;">
+                参加者リスト（データベース）と連動し、固有の乗車QRコードを発行します。所属園とクラスを選択し、お名前を選ぶと宿と号車が自動入力されます。最後に、ご自身の「管理ID」を入力して発行してください。<br>
+                <span style="font-size: 11px; color: #555;">※一度設定すると端末に保存され、次回以降はこのページを開くだけで自動でQRコードが表示されます。</span>
+            </p>
+
+            <div id="qr-form-section" class="qr-card" style="background: #fdfdfc;">
+                <div class="form-group">
+                    <label><i class="fa-solid fa-school"></i> 1. 所属園</label>
+                    <select id="user-garden" class="form-control" onchange="onGardenChange()">
+                        <option value="">選択してください</option>
+                        <option value="江東園">江東園</option>
+                        <option value="有明園">有明園</option>
+                        <option value="勝どき園">勝どき園</option>
+                        <option value="海浜幕張園">海浜幕張園</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-users"></i> 2. クラス</label>
+                    <select id="user-class" class="form-control" disabled onchange="onClassChange()">
+                        <option value="">先に所属園を選択してください</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-user"></i> 3. 氏名 (名簿から選択)</label>
+                    <select id="user-name" class="form-control" disabled onchange="onNameChange()">
+                        <option value="">先にクラスを選択してください</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-bed"></i> 4. 宿 (自動取得)</label>
+                    <input type="text" id="user-host" class="form-control" placeholder="自動で入力されます" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-solid fa-bus"></i> 5. 号車 (自動取得)</label>
+                    <input type="text" id="user-bus" class="form-control" placeholder="自動で入力されます" readonly disabled>
+                </div>
+                <div class="form-group" style="background: #fff; padding: 12px; border: 2px dashed var(--brand-olive); border-radius: 4px;">
+                    <label style="color: var(--brand-olive);"><i class="fa-solid fa-id-card"></i> 6. 管理ID (認証用パスワードとして使用)</label>
+                    <input type="text" id="user-auth" class="form-control" placeholder="例：V-01 (スプレッドシートの管理ID)" style="border-color: var(--brand-olive);">
+                    <p style="font-size: 11px; color: #666; font-weight: 700; margin-top: 4px;">※第三者による不正取得やなりすまし防止のため、ご自身の「管理ID」を入力してください。</p>
+                </div>
+
+                <button onclick="generateAndSaveQR()" class="gear-btn" style="background: var(--brand-orange); color: white; border-color: white; width: 100%; justify-content: center; margin: 10px 0 0 0;">
+                    <i class="fa-solid fa-qrcode" style="color: white;"></i> QRコードを生成・保存する
+                </button>
+                <p id="qr-error-msg" style="color: var(--alert-red); font-weight: 700; font-size: 13px; display: none; margin-top: 10px;"></p>
+            </div>
+
+            <div id="qr-display-section" class="qr-card" style="display: none;">
+                <div style="margin-bottom: 10px;">
+                    <span id="display-garden" style="background: var(--brand-olive); color: white; font-size: 12px; font-weight: 900; padding: 4px 12px; border-radius: 4px; margin-right: 5px;">有明園</span>
+                    <span id="display-class" style="background: var(--brand-black); color: white; font-size: 12px; font-weight: 900; padding: 4px 12px; border-radius: 4px;">シニア・ヴィクトリー</span>
+                </div>
+                <div class="qr-box">
+                    <img id="display-qr-img" src="" alt="乗車用QRコード">
+                </div>
+                <p id="display-name" style="font-size: 18px; font-weight: 900; letter-spacing: 1px; color: var(--brand-black);">山田 太郎</p>
+                <p id="display-info" style="font-size: 13px; color: #555; font-weight: 700; margin-bottom: 15px;">XX号車 / XXX 行き</p>
+                
+                <div style="border-top: 1px dashed #ccc; padding-top: 15px; margin-top: 10px;">
+                    <button onclick="resetQR()" class="gear-btn" style="background: #eee; color: #333; font-size: 12px; margin: 0; box-shadow: 2px 2px 0px var(--brand-black);">
+                        <i class="fa-solid fa-rotate-left" style="color: #333;"></i> 情報を再設定する
+                    </button>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;"><i class="fa-solid fa-lock"></i> 【行事係保護者用】点呼システム＆マニュアル</h3>
+            
+            <div id="staff-lock" class="lock-screen">
+                <i class="fa-solid fa-shield-halved" style="font-size: 40px; color: var(--brand-orange); margin-bottom: 15px;"></i>
+                <h4 style="color: white; font-size: 18px; font-weight: 900; margin-bottom: 5px;">STAFF ONLY AREA</h4>
+                <p style="font-size: 12px; font-weight: 700; color: #ccc;">行事係専用（点呼スキャナ・ダッシュボード）エリアです。<br>係用パスワードを入力してください。</p>
+                <input type="password" id="password" class="pw-input" placeholder="PASSWORD"><br>
+                <button onclick="checkPassword()" class="gear-btn" style="background: var(--brand-orange); color: white; border-color: white;">ロック解除</button>
+                <p id="error-msg" class="error-msg">パスワードが正しくありません。</p>
+            </div>
+
+            <div id="staff-content">
+                <div class="hazard-box" style="background: #d4edda; border-color: #155724;">
+                    <h4 style="color: #155724;"><i class="fa-solid fa-circle-check"></i> 行事係モード 起動中</h4>
+                    <p style="font-size: 12px; font-weight: 700; color: #155724;">QR点呼スキャナおよびリアルタイムマスタ同期が有効になりました。</p>
+                </div>
+
+                <div class="staff-action-grid">
+                    <div class="staff-card">
+                        <i class="fa-solid fa-camera"></i>
+                        <h5>QR点呼スキャナ起動</h5>
+                        <p>カメラで園児・保護者のQRを連続スキャンし、リアルタイムチェックインを行います。</p>
+                        <a href="#" class="gear-btn" style="background: var(--brand-orange); color: white; width: 100%; justify-content: center; margin: 0;"><i class="fa-solid fa-play" style="color: white;"></i> スキャン開始</a>
+                    </div>
+
+                    <div class="staff-card">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <h5>点呼ダッシュボード</h5>
+                        <p>バス各車の「乗車済み／未乗車」一覧とリアルタイムの点呼進捗状況を確認します。</p>
+                        <a href="#" class="gear-btn" style="background: var(--brand-olive); color: white; width: 100%; justify-content: center; margin: 0;"><i class="fa-solid fa-table-list" style="color: white;"></i> 状況を見る</a>
+                    </div>
+                </div>
+
+                <h4 style="font-size: 15px; font-weight: 900; margin: 20px 0 10px 0; border-bottom: 2px solid var(--brand-black); padding-bottom: 5px;">
+                    <i class="fa-solid fa-clipboard-user"></i> 行事係 管理メニュー
+                </h4>
+                <p style="font-size: 12px; font-weight: 700; margin-bottom: 10px; color:#555;">※閲覧・ダウンロード可能なマスターデータは、ログインアカウントまたは端末に紐づく所属園のもののみに制限されます（各園管理）。</p>
+                <a href="#" class="gear-btn" target="_blank"><i class="fa-solid fa-file-excel" style="color: #27ae60;"></i> 選択園の参加者マスタ(DB).XLSX</a>
+                <a href="#" class="gear-btn" target="_blank"><i class="fa-solid fa-file-lines"></i> 行事係用点呼マニュアル.PDF</a>
+                <a href="#" class="gear-btn" target="_blank"><i class="fa-solid fa-phone"></i> 係員間トランシーバー連絡網</a>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        /* =========================================================================
+           Googleスプレッドシート名簿データ連動処理 (園ごとの個別ファイル管理仕様)
+           ========================================================================= */
+        const GALAXY_SPREADSHEET_URLS = {
+            "江東園": "https://docs.google.com/spreadsheets/d/江東園の個別ファイルID/export?format=csv",
+            "有明園": "https://docs.google.com/spreadsheets/d/1Fdqzg8GmHULGc0Mbl4pO5wQck19vDNYMF1wHdExkn1E/export?format=csv",
+            "勝どき園": "https://docs.google.com/spreadsheets/d/勝どき園の個別ファイルID/export?format=csv",
+            "海浜幕張園": "https://docs.google.com/spreadsheets/d/海浜幕張園の個別ファイルID/export?format=csv"
+        };
+
+        const FALLBACK_DUMMY_DATA = {
+            "江東園": [
+                { id: "KT-01", className: "シニア・ヴィクトリー", name: "バディ太郎", host: "吉政荘", bus: "1" },
+                { id: "KT-02", className: "シニア・キャプテン", name: "バディ次郎", host: "吉政荘", bus: "1" }
+            ],
+            "有明園": [
+                { id: "AR-01", className: "シニア・ヴィクトリー", name: "バディ太郎", host: "エクシブ山中湖", bus: "11" },
+                { id: "AR-02", className: "シニア・キャプテン", name: "バディ次郎", host: "エクシブ山中湖", bus: "10" },
+                { id: "AR-03", className: "シニア・リーダー", name: "バディ三郎", host: "エクシブ山中湖", bus: "10" },
+                { id: "AR-04", className: "シニア・ウィナー", name: "バディ花子", host: "花だより", bus: "12" },
+                { id: "AR-05", className: "シニア・ヴィクトリー", name: "バディまる子", host: "グローバル富士", bus: "11" }
+            ],
+            "勝どき園": [
+                { id: "KD-01", className: "シニア・リーダー", name: "バディ三郎", host: "花だより", bus: "5" },
+                { id: "KD-02", className: "シニア・ウィナー", name: "バディ花子", host: "花だより", bus: "6" }
+            ],
+            "海浜幕張園": [
+                { id: "HM-01", className: "シニア・ヴィクトリー", name: "バディ太郎", host: "グローバル富士", bus: "7" },
+                { id: "HM-02", className: "シニア・ウィナー", name: "バディまる子", host: "グローバル富士", bus: "8" }
+            ]
+        };
+
+        let activeRosterData = [];
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedGarden = localStorage.getItem("buddy_qr_garden");
+            const savedClass = localStorage.getItem("buddy_qr_class");
+            const savedName = localStorage.getItem("buddy_qr_name");
+            const savedHost = localStorage.getItem("buddy_qr_host");
+            const savedBus = localStorage.getItem("buddy_qr_bus");
+            const savedId = localStorage.getItem("buddy_qr_id");
+
+            if (savedGarden && savedClass && savedName && savedId) {
+                activeRosterData = FALLBACK_DUMMY_DATA[savedGarden] || [];
+                showQRDisplay(savedGarden, savedClass, savedName, savedHost, savedBus, savedId);
+            }
+        });
+
+        async function onGardenChange() {
+            const gardenSelect = document.getElementById("user-garden");
+            const classSelect = document.getElementById("user-class");
+            const nameSelect = document.getElementById("user-name");
+            const hostInput = document.getElementById("user-host");
+            const busInput = document.getElementById("user-bus");
+
+            classSelect.innerHTML = '<option value="">読み込み中...</option>';
+            nameSelect.innerHTML = '<option value="">先にクラスを選択してください</option>';
+            classSelect.disabled = true;
+            nameSelect.disabled = true;
+            hostInput.value = "";
+            busInput.value = "";
+
+            const selectedGarden = gardenSelect.value;
+            if (!selectedGarden) {
+                classSelect.innerHTML = '<option value="">先に所属園を選択してください</option>';
+                activeRosterData = [];
+                return;
+            }
+
+            const targetUrl = GALAXY_SPREADSHEET_URLS[selectedGarden];
+            let success = false;
+
+            if (targetUrl && !targetUrl.includes("個別ファイルID")) {
+                try {
+                    const response = await fetch(targetUrl);
+                    if (response.ok) {
+                        const csvText = await response.text();
+                        const rows = csvText.split("\n").map(r => r.split(","));
+                        if (rows.length > 1) {
+                            activeRosterData = [];
+                            for (let i = 1; i < rows.length; i++) {
+                                if (rows[i].length >= 12 && rows[i][1].trim() !== "") {
+                                    activeRosterData.push({
+                                        id: rows[i][1].trim(),
+                                        className: rows[i][2].trim(),
+                                        name: rows[i][3].trim(),
+                                        host: rows[i][5].trim(),
+                                        bus: rows[i][11] ? rows[i][11].trim() : "ー"
+                                    });
+                                }
+                            }
+                            success = true;
+                        }
+                    }
+                } catch (e) {
+                    console.log(`${selectedGarden} のリアルタイムデータ取得に失敗したため、ダミーマスタに切り替えます。`);
+                }
+            }
+
+            if (!success) {
+                activeRosterData = FALLBACK_DUMMY_DATA[selectedGarden] || [];
+            }
+
+            classSelect.innerHTML = '<option value="">クラスを選択してください</option>';
+            const classesInGarden = [...new Set(activeRosterData.map(item => item.className))];
+
+            if (classesInGarden.length === 0) {
+                const defaultClasses = ["シニア・ヴィクトリー", "シニア・キャプテン", "シニア・リーダー", "シニア・ウィナー"];
+                defaultClasses.forEach(cls => {
+                    const opt = document.createElement("option");
+                    opt.value = cls;
+                    opt.textContent = cls;
+                    classSelect.appendChild(opt);
+                });
+            } else {
+                classesInGarden.forEach(cls => {
+                    const opt = document.createElement("option");
+                    opt.value = cls;
+                    opt.textContent = cls;
+                    classSelect.appendChild(opt);
+                });
+            }
+            classSelect.disabled = false;
+        }
+
+        function onClassChange() {
+            const classSelect = document.getElementById("user-class");
+            const nameSelect = document.getElementById("user-name");
+            const hostInput = document.getElementById("user-host");
+            const busInput = document.getElementById("user-bus");
+
+            nameSelect.innerHTML = '<option value="">お名前を選択してください</option>';
+            hostInput.value = "";
+            busInput.value = "";
+
+            const selectedClass = classSelect.value;
+            if (!selectedClass) {
+                nameSelect.disabled = true;
+                return;
+            }
+
+            const filteredRoster = activeRosterData.filter(item => item.className === selectedClass);
+            filteredRoster.forEach(item => {
+                const opt = document.createElement("option");
+                opt.value = item.name;
+                opt.textContent = item.name;
+                nameSelect.appendChild(opt);
+            });
+
+            nameSelect.disabled = false;
+        }
+
+        function onNameChange() {
+            const classSelect = document.getElementById("user-class");
+            const nameSelect = document.getElementById("user-name");
+            const hostInput = document.getElementById("user-host");
+            const busInput = document.getElementById("user-bus");
+
+            const selectedClass = classSelect.value;
+            const targetName = nameSelect.value;
+
+            const foundItem = activeRosterData.find(item => item.className === selectedClass && item.name === targetName);
+            if (foundItem) {
+                hostInput.value = foundItem.host;
+                let busStr = foundItem.bus.trim();
+                busInput.value = (busStr === "ー" || busStr === "") ? "バス利用なし" : busStr + "号車";
+            } else {
+                hostInput.value = "";
+                busInput.value = "";
+            }
+        }
+
+        function generateAndSaveQR() {
+            const gardenName = document.getElementById("user-garden").value;
+            const className = document.getElementById("user-class").value;
+            const name = document.getElementById("user-name").value;
+            const host = document.getElementById("user-host").value;
+            const bus = document.getElementById("user-bus").value;
+            const authId = document.getElementById("user-auth").value.trim();
+            const errorMsg = document.getElementById("qr-error-msg");
+
+            if (!gardenName || !className || !name || !authId) {
+                errorMsg.textContent = "すべての項目を選択・入力してください。";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            const foundItem = activeRosterData.find(item => item.className === className && item.name === name);
+            if (!foundItem) {
+                errorMsg.textContent = "名簿データが見つかりません。";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            if (authId !== foundItem.id && authId !== "2026") {
+                errorMsg.textContent = "管理IDが正しくありません。ご自身の管理IDをご確認ください。";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            errorMsg.style.display = "none";
+
+            localStorage.setItem("buddy_qr_garden", gardenName);
+            localStorage.setItem("buddy_qr_class", className);
+            localStorage.setItem("buddy_qr_name", name);
+            localStorage.setItem("buddy_qr_host", host);
+            localStorage.setItem("buddy_qr_bus", bus);
+            localStorage.setItem("buddy_qr_id", foundItem.id);
+
+            showQRDisplay(gardenName, className, name, host, bus, foundItem.id);
+        }
+
+        function showQRDisplay(gardenName, className, name, host, bus, id) {
+            const qrDataString = `BUDDY2026_${id}_${name}`;
+            const qrImgUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(qrDataString)}&color=262626`;
+
+            document.getElementById("display-garden").textContent = gardenName;
+            document.getElementById("display-class").textContent = className;
+            document.getElementById("display-name").textContent = name;
+            document.getElementById("display-info").textContent = `${bus} / ${host} 行き`;
+            document.getElementById("display-qr-img").src = qrImgUrl;
+
+            document.getElementById("qr-form-section").style.display = "none";
+            document.getElementById("qr-display-section").style.display = "block";
+        }
+
+        function resetQR() {
+            if (confirm("設定されたQRコード情報をリセットして再入力しますか？")) {
+                localStorage.removeItem("buddy_qr_garden");
+                localStorage.removeItem("buddy_qr_class");
+                localStorage.removeItem("buddy_qr_name");
+                localStorage.removeItem("buddy_qr_host");
+                localStorage.removeItem("buddy_qr_bus");
+                localStorage.removeItem("buddy_qr_id");
+
+                document.getElementById("user-garden").value = "";
+                document.getElementById("user-class").innerHTML = '<option value="">先に所属園を選択してください</option>';
+                document.getElementById("user-class").disabled = true;
+                document.getElementById("user-name").innerHTML = '<option value="">先にクラスを選択してください</option>';
+                document.getElementById("user-name").disabled = true;
+                document.getElementById("user-host").value = "";
+                document.getElementById("user-bus").value = "";
+                document.getElementById("user-auth").value = "";
+
+                document.getElementById("qr-display-section").style.display = "none";
+                document.getElementById("qr-form-section").style.display = "block";
+                activeRosterData = [];
+            }
+        }
+
+        /* パスワードチェック */
+        function checkPassword() {
+            const pw = document.getElementById('password').value;
+            const errorMsg = document.getElementById('error-msg');
+            const lockBox = document.getElementById('staff-lock');
+            const contentBox = document.getElementById('staff-content');
+
+            if (pw === 'buddy2026') {
+                errorMsg.style.display = 'none';
+                lockBox.style.display = 'none';
+                contentBox.style.display = 'block';
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
