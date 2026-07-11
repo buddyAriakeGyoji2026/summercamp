@@ -87,7 +87,7 @@
             font-family: 'Noto Sans JP', sans-serif;
             font-weight: 900;
             font-size: 26px; 
-            line-height: 1.3;
+            line-height: 1.4;
             margin-bottom: 0; 
             letter-spacing: 1px;
             color: #FFFFFF;
@@ -144,6 +144,26 @@
         }
 
         h3:first-of-type { margin-top: 10px; }
+
+        .about-box {
+            background: #fff;
+            border: 3px solid var(--brand-black);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 35px;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .about-box h2 {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--brand-olive);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
         .principle-box {
             background: var(--brand-black);
@@ -554,6 +574,20 @@
             display: block;
         }
 
+        /* テーブル内マップリンクのスタイル調整 */
+        .map-link-cell {
+            color: var(--brand-black);
+            text-decoration: underline;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .map-link-cell i {
+            color: var(--brand-orange);
+            font-size: 11px;
+        }
+
     </style>
 </head>
 <body>
@@ -562,7 +596,7 @@
         <div class="logo-container">
             <img src="buddy_logo.png" alt="BUDDY SUMMER CAMP">
         </div>
-        <h1>サマーキャンプ 2026<br>参加保護者情報ポータル</h1>
+        <h1>BUDDY<br>サマーキャンプ 2026<br>参加保護者情報ポータル</h1>
     </header>
 
     <nav>
@@ -574,6 +608,16 @@
     </nav>
 
     <div class="container">
+
+        <!-- このサイトについて セクション -->
+        <div class="about-box">
+            <h2><i class="fa-solid fa-circle-info"></i> このサイトについて</h2>
+            <p>このサイトは、有明園サマーキャンプ参加保護者向けに有明行事係が運営しているサポートサイトです。園に内容をご確認・ご了承いただいたうえで公開しています。サマーキャンプ当日の流れや持ち物、配布資料などを分かりやすくまとめていますので、ぜひご活用ください。</p>
+            <p style="margin-top: 8px; font-size: 13px; color: #555;">
+                ※掲載内容に関するご質問・ご意見は、有明行事係までお願いいたします。<br>
+                ※園の運営やサマーキャンプ全体に関するお問い合わせは、園へご確認ください。
+            </p>
+        </div>
         
         <section id="overview" class="gear-box">
             <div class="section-label">01. OVERVIEW</div>
@@ -617,6 +661,11 @@
             <a href="ariake/pdf/08_260623.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑧ らくらく連絡網＋の使用について（2026年6月23日 配信）</a>
             
             <a href="ariake/pdf/09_260702.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑨ サマーキャンプに参加される保護者の方へ［ルール・日程詳細・ペナルティ規定］（2026年7月2日 配信）</a>
+
+            <!-- 行事係からのご案内 エリア -->
+            <h3 style="margin-top: 25px;"><i class="fa-solid fa-clipboard-list"></i> 行事係からのご案内</h3>
+            <p style="font-weight: 700; font-size: 13px; margin-bottom: 10px;">有明行事係が作成したサポート情報・案内資料です。ご一読ください。</p>
+            <a href="ariake/pdf/2026_SC_Parents.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> 行事係からのご案内資料（PDF）</a>
         </section>
 
         <section id="rules" class="gear-box">
@@ -658,7 +707,7 @@
 
             <h3><i class="fa-solid fa-bag-shopping"></i> 保護者の持ち物 ＆ イベント規定</h3>
             
-            <a href="持ち物リスト.png" class="gear-btn" target="_blank" style="background: var(--brand-olive); color: white; border-color: white; margin-bottom: 15px;"><i class="fa-solid fa-image" style="color: white;"></i> 【原本】保護者持ち物のご案内（画像を確認する）</a>
+            <a href="ariake/img/belongings.PNG" class="gear-btn" target="_blank" style="background: var(--brand-olive); color: white; border-color: white; margin-bottom: 15px;"><i class="fa-solid fa-image" style="color: white;"></i> 【原本】保護者持ち物のご案内（画像を確認する）</a>
 
             <div class="hazard-box" style="margin-top: 5px; background: #FFF9F0; border-color: var(--brand-coyote);">
                 <h4><i class="fa-solid fa-tag" style="color: var(--brand-orange);"></i> 荷物に関するルール</h4>
@@ -762,9 +811,9 @@
         <section id="stay" class="gear-box">
             <div class="section-label">03. ACCOMMODATION</div>
             
-            <h3 style="margin-top: 0;"><i class="fa-solid fa-hotel"></i> 宿泊・食事スケジュール規定</h3>
+            <h3 style="margin-top: 0;"><i class="fa-solid fa-bed"></i> 各宿の食事スケジュールです。</h3>
             <p style="font-weight: 700; font-size: 13px; margin-bottom: 10px;">
-                メイン会場・園児宿である「リゾートin愛」を中心とした各宿のスケジュールです。<br>
+                各宿の食事スケジュールです。
                 <span style="color: var(--alert-red);">※規定外の宿を個人手配しての参加は固く禁じます。エクシブの部屋番号は当日受付時にご案内します。</span>
             </p>
 
@@ -779,7 +828,7 @@
                         <th>チェックアウト</th>
                     </tr>
                     <tr>
-                        <td>エクシブ山中湖</td>
+                        <td><a href="https://maps.app.goo.gl/TFiVhdhgHxhEd9L46" target="_blank" class="map-link-cell">エクシブ山中湖 <i class="fa-solid fa-map-location-dot"></i></a></td>
                         <td>18:00~</td>
                         <td>お弁当</td>
                         <td>17:45~</td>
@@ -787,7 +836,7 @@
                         <td>11:00厳守</td>
                     </tr>
                     <tr>
-                        <td>花だより</td>
+                        <td><a href="https://maps.app.goo.gl/QWPjSU4EHx4VB4tp7" target="_blank" class="map-link-cell">花だより <i class="fa-solid fa-map-location-dot"></i></a></td>
                         <td>19:00~</td>
                         <td>お弁当</td>
                         <td>17:00~</td>
@@ -795,7 +844,7 @@
                         <td style="color: var(--alert-red); font-weight: 900;">10:00厳守</td>
                     </tr>
                     <tr>
-                        <td>グローバル富士</td>
+                        <td><a href="https://maps.app.goo.gl/271eh8d39PdcU3kT9" target="_blank" class="map-link-cell">グローバル富士 <i class="fa-solid fa-map-location-dot"></i></a></td>
                         <td>19:00~</td>
                         <td>お弁当</td>
                         <td>17:00~</td>
@@ -803,7 +852,7 @@
                         <td>11:00厳守</td>
                     </tr>
                     <tr>
-                        <td>吉政荘</td>
+                        <td><a href="https://maps.app.goo.gl/y62DACGSPEcgyDRb8" target="_blank" class="map-link-cell">吉政荘 <i class="fa-solid fa-map-location-dot"></i></a></td>
                         <td>19:00~</td>
                         <td>お弁当</td>
                         <td>17:00~</td>
@@ -814,7 +863,7 @@
             </div>
 
             <div class="embed-map-container">
-                <img src="ariake/img/0hotel_map.JPG" alt="山中湖周辺 宿泊施設マップ">
+                <img src="ariake/img/hotel_map.JPG" alt="山中湖周辺 宿泊施設マップ">
             </div>
 
             <div class="hazard-box">
@@ -932,7 +981,7 @@
                 </div>
 
                 <div class="hazard-box red">
-                    <h4><i class="fa-solid fa-ban"></i> 会場（リゾートin愛グラウンド）での絶対禁止事項</h4>
+                    <h4><i class="fa-solid fa-ban"></i> 会場（<a href="https://maps.app.goo.gl/QXYnhJH5qc4w8cFt5" target="_blank" style="color: var(--alert-red); text-decoration: underline;">リゾートin愛グラウンド <i class="fa-solid fa-map-location-dot"></i></a>）での絶対禁止事項</h4>
                     <ul class="rules-list forbidden" style="margin-bottom: 0; font-weight: 700; font-size: 13px;">
                         <li><span style="color: var(--alert-red);">✖️</span> <strong>車両の乗り入れ：</strong>会場への自家用車の乗り入れは禁止です。</li>
                         <li><span style="color: var(--alert-red);">✖️</span> <strong>園児への接触：</strong>園児への声掛けや接触は禁止です。</li>
@@ -1002,9 +1051,9 @@
                     <i class="fa-solid fa-clipboard-user"></i> 行事係 管理メニュー
                 </h4>
                 <p style="font-size: 12px; font-weight: 700; margin-bottom: 10px; color:#555;">※閲覧・ダウンロード可能なマスターデータは、ログインアカウントまたは端末に紐づく所属園のもののみに制限されます（各園管理）。</p>
-                <a href="https://docs.google.com/spreadsheets/d/1Fdqzg8GmHULGc0Mbl4pO5wQck19vDNYMF1wHdExkn1E/edit?usp=drive_link" class="gear-btn" target="_blank"><i class="fa-solid fa-file-excel" style="color: #27ae60;"></i> 選択園の参加者マスタ(DB)スプレッドシート</a>
+                <a href="https://docs.google.com/spreadsheets/d/1Fdqzg8GmHULGc0Mbl4pO5wQck19vDNYMF1wHdExkn1E/edit?usp=drive_link" class="gear-btn" target="_blank"><i class="fa-solid fa-file-excel" style="color: #27ae60;"></i> 有明参加保護者リスト(DB)スプレッドシート ※権限保持者のみ</a>
                 <a href="ariake/support/gyoji_timeschedule.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-lines"></i> 行事係タイムスケジュール</a>
-                <a href="ariake/support/gyoji_timeschedule.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-shuttle-space"></i> 洞窟探検 サポートフロー</a>
+                <a href="ariake/support/gyoji_supportguide.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-shuttle-space"></i> 行事係サポート内容説明資料</a>
             </div>
         </section>
 
