@@ -14,7 +14,7 @@
             --brand-black: #262626; 
             --brand-olive: #4F5D4E; 
             --brand-orange: #2e7d32; /* メインテーマはミドリ */
-            --brand-icon-orange: #F26430; /* アイコン用元のオレンジ */
+            --brand-icon-orange: #F26430; /* 大原則用の元のオレンジ */
             --brand-coyote: #B89B72; 
             --card-bg: #FAFAF8;
             --alert-red: #D9381E;
@@ -172,11 +172,11 @@
             padding: 20px;
             border-radius: 6px;
             margin-bottom: 20px;
-            border-left: 8px solid var(--brand-icon-orange); /* 元の色を維持 */
+            border-left: 8px solid var(--brand-icon-orange); /* 大原則の元のオレンジを維持 */
         }
 
         .principle-box h4 {
-            color: var(--brand-icon-orange); /* 元の色を維持 */
+            color: var(--brand-icon-orange); /* 大原則の元のオレンジを維持 */
             font-size: 18px;
             font-weight: 900;
             margin-bottom: 8px;
@@ -328,11 +328,11 @@
             transform: translate(4px, 4px);
         }
 
-        .gear-btn i { color: var(--brand-icon-orange); font-size: 16px; } /* アイコン色は元のオレンジ */
+        .gear-btn i { color: var(--brand-orange); font-size: 16px; } /* ボタン内アイコンも緑に変更 */
 
         .emergency-box {
             background: #fff;
-            border: 3px dashed var(--brand-icon-orange); /* 元のオレンジ */
+            border: 3px dashed var(--brand-orange); /* 破線の色を緑に変更 */
             padding: 15px;
             margin-top: 10px;
         }
@@ -430,7 +430,7 @@
             top: 15px;
             width: 14px;
             height: 14px;
-            background: var(--brand-icon-orange); /* アイコン色は元のオレンジ */
+            background: var(--brand-orange); /* 左の●を緑に変更 */
             border: 3px solid var(--brand-black);
             border-radius: 50%;
         }
@@ -490,7 +490,7 @@
         .class-timeline li span.time {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            color: var(--brand-icon-orange); /* 元のオレンジ */
+            color: var(--brand-orange); /* タイムライン内の文字色も緑に変更 */
             min-width: 45px;
         }
 
@@ -546,6 +546,11 @@
             font-size: 11px;
         }
 
+        /* 各種見出し用アイコンカラー（緑） */
+        h3 i, .about-box h2 i {
+            color: var(--brand-orange) !important;
+        }
+
         /* フッターコピーライト */
         footer {
             text-align: center;
@@ -577,7 +582,7 @@
 
         <!-- このサイトについて セクション -->
         <div class="about-box">
-            <h2><i class="fa-solid fa-circle-info" style="color:var(--brand-icon-orange);"></i> このサイトについて</h2>
+            <h2><i class="fa-solid fa-circle-info"></i> このサイトについて</h2>
             <p>このサイトは、江東園サマーキャンプ参加保護者向けに江東行事係が運営しているサポートサイトです。園に内容をご確認・ご了承いただいたうえで公開しています。サマーキャンプ当日の流れや持ち物、配布資料などを分かりやすくまとめていますので、ぜひご活用ください。</p>
             <p style="margin-top: 8px; font-size: 13px; color: #555;">
                 ※掲載内容に関するご質問・ご意見は、江東行事係までお願いいたします。<br>
@@ -590,24 +595,24 @@
             
             <div class="principle-box">
                 <h4><i class="fa-solid fa-flag"></i> 大原則：『すべては子どもたちの笑顔と安全のために』</h4>
-                <p style="font-weight: 700; font-size: 14px;">子どもたちの安全と最高の思い出づくりを第一に考えています。許可のない見学・接触、違法駐車、近裏への迷惑となる行為などは、固くお断りいたします。皆さまのご理解とご協力をお願いいたします。</p>
+                <p style="font-weight: 700; font-size: 14px;">子どもたちの安全と最高の思い出づくりを第一に考えています。許可のない見学・接触、違法駐車、近隣への迷惑となる行為などは、固くお断りいたします。皆さまのご理解とご協力をお願いいたします。</p>
                 <div class="penalty-box">
                     <i class="fa-solid fa-triangle-exclamation"></i> 【ルール違反時のペナルティ】<br>
                     <span style="font-size: 13px; font-weight: 700; color: var(--brand-black);">保護者のルール違反が確認された場合には、大会規定に基づき、お子様が所属する園の全チームの3日目クロスカントリーに追加タイム（ペナルティ）が加算されます。子どもたちのこれまでの努力を無駄にしないため、また、安心して全力を発揮できるよう、ルールの遵守にご協力をお願いいたします。</span>
                 </div>
             </div>
 
-            <h3><i class="fa-solid fa-phone-volume" style="color:var(--brand-icon-orange);"></i> 連絡網・緊急対応</h3>
+            <h3><i class="fa-solid fa-phone-volume"></i> 連絡網・緊急対応</h3>
             <p style="font-weight: 700; font-size: 13px; margin-bottom: 5px;">急な予定変更等は公式アプリ『らくらく連絡網+』にてリアルタイム通知いたします。</p>
             <p style="font-size: 11px; font-weight: 700; color: var(--brand-orange); margin-bottom: 10px;">※キャンプ前のお問い合わせは、各所属園へご連絡ください。</p>
             <div class="emergency-box">
                 <div class="emergency-item" style="border-bottom: none; padding-bottom: 0;">
-                    <span><i class="fa-solid fa-phone" style="color: var(--brand-icon-orange);"></i> キャンプ期間中のお問い合わせ先：はるひ野園職員・上野</span>
+                    <span><i class="fa-solid fa-phone"></i> キャンプ期間中のお問い合わせ先：はるひ野園職員・上野</span>
                     <span style="font-size: 16px; letter-spacing: 1px;">090-5196-2710</span>
                 </div>
             </div>
 
-            <h3><i class="fa-solid fa-file-pdf" style="color:var(--brand-icon-orange);"></i> 園公式配布資料一覧</h3>
+            <h3><i class="fa-solid fa-file-pdf"></i> 園公式配布資料一覧</h3>
             <p style="font-weight: 700; font-size: 13px; margin-bottom: 10px;">サマーキャンプに関して配布された公式資料です。必ず事前にご確認ください。</p>
             
             <a href="ariake/pdf/01_260421.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ① ２０２６ 山中湖サマーキャンプ シニア保護者参加のお知らせ（2026年4月21日 配信）</a>
@@ -620,7 +625,7 @@
             
             <a href="ariake/pdf/05_260618.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑤ ２０２６バディサマーキャンプ［日程・宿泊・集合場所案内］（2026年6月18日 配信）</a>
             
-            <a href="ariake/pdf/06_koto_260618.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑥ ２０２６サマーキャンプ荷物の詰め方★シニア★（2026年6月18日 配信）</a>
+            <a href="/ariake/pdf/06_koto_260618.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑥ ２０２６サマーキャンプ荷物の詰め方★シニア★（2026年6月18日 配信）</a>
             
             <a href="ariake/pdf/07_20260618.pdf" class="gear-btn" target="_blank"><i class="fa-solid fa-file-pdf"></i> ⑦ ２０２６サマーキャンプ体調確認表（2026年6月18日 配信）</a>
             
@@ -632,7 +637,7 @@
         <section id="rules" class="gear-box">
             <div class="section-label">02. RULES & PACKING</div>
             
-            <h3 style="margin-top: 0;"><i class="fa-solid fa-list-check" style="color:var(--brand-icon-orange);"></i> 保護者の遵守事項と絶対禁止事項</h3>
+            <h3 style="margin-top: 0;"><i class="fa-solid fa-list-check"></i> 保護者の遵守事項と絶対禁止事項</h3>
             <p style="font-weight: 700; font-size: 13px; margin-bottom: 15px;">皆様のご理解とご協力が不可欠です。以下のルールを必ずお守りください。</p>
 
             <div class="critical-alert-box">
@@ -666,12 +671,12 @@
                 </div>
             </div>
 
-            <h3><i class="fa-solid fa-bag-shopping" style="color:var(--brand-icon-orange);"></i> 保護者の持ち物 ＆ イベント規定</h3>
+            <h3><i class="fa-solid fa-bag-shopping"></i> 保護者の持ち物 ＆ イベント規定</h3>
             
             <a href="ariake/img/belongings.PNG" class="gear-btn" target="_blank" style="background: var(--brand-olive); color: white; border-color: white; margin-bottom: 15px;"><i class="fa-solid fa-image" style="color: white;"></i> 【原本】保護者持ち物のご案内（画像を確認する）</a>
 
             <div class="hazard-box" style="margin-top: 5px; background: #FFF9F0; border-color: var(--brand-coyote);">
-                <h4><i class="fa-solid fa-tag" style="color: var(--brand-icon-orange);"></i> 荷物に関するルール</h4>
+                <h4><i class="fa-solid fa-tag"></i> 荷物に関するルール</h4>
                 <p style="font-size: 12px; font-weight: 700; line-height: 1.5;">
                     ・バッグの大きさに制限はありません。目安としてご確認いただき、当日必要に応じてご準備ください。<br>
                     ・<strong>すべての荷物に【ミドリ色のテープ】で『江東・氏名（⚪︎⚪︎）』を記載</strong>し、見えやすい位置に必ず貼付してください。他園との荷物の取り違いを防止するため、<span style="color: var(--brand-orange);">ミドリ色以外のテープは使用不可</span>とします。
@@ -697,7 +702,7 @@
                         <li>ウェットティッシュ</li>
                         <li>携帯トイレ</li>
                         <li class="required"><strong>サマーキャンプ参加許可証</strong> <span class="badge-req">必須!!!</span></li>
-                        <li style="list-style: none; margin-top: 5px; padding-left: 0; font-weight: 900; color: var(--brand-icon-orange);">☑ 入山申請コード（富士山吉田ルート）<br><span style="font-size: 10px; color: #555; font-weight: 700;">※QRコードのスクショ（推奨）</span></li>
+                        <li style="list-style: none; margin-top: 5px; padding-left: 0; font-weight: 900; color: var(--brand-orange);">☑ 入山申請コード（富士山吉田ルート）<br><span style="font-size: 10px; color: #555; font-weight: 700;">※QRコードのスクショ（推奨）</span></li>
                     </ul>
                 </div>
 
@@ -761,7 +766,7 @@
             </div>
             
             <div class="hazard-box" style="margin-top: 15px; background: #fff; border-color: var(--brand-black); padding: 12px;">
-                <h4 style="font-size: 13px; color: var(--brand-icon-orange);"><i class="fa-solid fa-circle-info"></i> お願い・リマインド</h4>
+                <h4 style="font-size: 13px; color: var(--brand-orange);"><i class="fa-solid fa-circle-info"></i> お願い・リマインド</h4>
                 <p style="font-size: 11px; font-weight: 700; line-height: 1.4;">
                     ・すべての持ち物に「江東・氏名」を記載してください。<br>
                     ・ご不明な点がございましたら、行事係までお気軽にご連絡ください。
@@ -772,7 +777,7 @@
         <section id="stay" class="gear-box">
             <div class="section-label">03. ACCOMMODATION</div>
             
-            <h3 style="margin-top: 0;"><i class="fa-solid fa-bed" style="color:var(--brand-icon-orange);"></i> 各宿の食事スケジュールです。</h3>
+            <h3 style="margin-top: 0;"><i class="fa-solid fa-bed"></i> 各宿の食事スケジュールです。</h3>
             <p style="font-weight: 700; font-size: 13px; margin-bottom: 10px;">
                 各宿の食事スケジュールです。
                 <span style="color: var(--alert-red);">※規定外の宿を個人手配しての参加は固く禁じます。エクシブの部屋番号は当日受付時にご案内します。</span>
@@ -831,7 +836,7 @@
                 <h4><i class="fa-solid fa-box-archive"></i> お弁当受取 ＆ チェックアウト重要ルール</h4>
                 <ul class="rules-list" style="margin-bottom: 0;">
                     <li><strong>Day2 朝食・昼食：</strong>朝5:15までに各宿ロビーで受取（※昼食はA・Bコース申込者のみ、コンビニ手配の軽食となります）。</li>
-                    <li><strong>Day3 昼食：</strong>クロスカントリー終了後、会場でお弁当を受取。</li>
+                    <li><strong>Day3 昼食：</strong>クロスカントリー終了後, 会場でお弁当を受取。</li>
                     <li><strong>花だより宿泊者：</strong>チェックアウトは【10:00厳守】です。</li>
                     <li><strong>全宿共通：</strong>有料サービスの精算は各部屋の代表者が一括でお支払いください。鍵の紛失には十分にご注意ください。</li>
                 </ul>
@@ -841,7 +846,7 @@
         <section id="schedule" class="gear-box">
             <div class="section-label">04. SCHEDULE</div>
             
-            <h3 style="margin-top: 0;"><i class="fa-solid fa-clock-rotate-left" style="color:var(--brand-icon-orange);"></i> 全日程タイムライン ＆ 各日規定</h3>
+            <h3 style="margin-top: 0;"><i class="fa-solid fa-clock-rotate-left"></i> 全日程タイムライン ＆ 各日規定</h3>
             <p style="font-weight: 700; font-size: 13px; margin-bottom: 15px;">
                 2日目は<strong>所属する園（有明園・海浜幕張園／江東園／勝どき園）によってバス出発時間およびプログラムの順序・集合時間が異なります</strong>。必ずご自身の園のスケジュールをご確認ください。
             </p>
@@ -854,7 +859,7 @@
                     <p style="font-size: 13px; font-weight: 700;">
                         ▲ <strong>富士山五合目：</strong>サマーキャンプ期間中はマイカー規制期間のため、自家用車での五合目への乗り入れ・アクセスは【一切不可】となっています。現地集合・解散コース（交通利用なし）を選択されている保護者様は、ご自身でシャトルバス等のアクセス方法を事前に確保・手配の上、登山開始時間（8:00）までに必ず五合目へお集まりください。<br>
                         <span style="font-size: 12px; display: block; margin-top: 5px; color: var(--brand-black);">
-                            ※詳しくは、<a href="https://www.fujisan-climb.jp/info/2181/" target="_blank" style="color: var(--brand-icon-orange); font-weight:900;">富士登山オフィシャルサイト</a>、または<a href="https://tollgate.securesite.jp/wp/road/subaruline/eigyoinfo/mycarkisei/" target="_blank" style="color: var(--brand-icon-orange); font-weight:900;">山梨県道路公社サイト</a>をご参照ください。
+                            ※詳しくは、<a href="https://www.fujisan-climb.jp/info/2181/" target="_blank" style="color: var(--brand-orange); font-weight:900;">富士登山オフィシャルサイト</a>、または<a href="https://tollgate.securesite.jp/wp/road/subaruline/eigyoinfo/mycarkisei/" target="_blank" style="color: var(--brand-orange); font-weight:900;">山梨県道路公社サイト</a>をご参照ください。
                         </span>
                     </p>
                 </div>
@@ -865,7 +870,7 @@
                     <p class="event-desc">
                         園児たちの富士登山がスタートします。子供たちが安心して登山に臨めるよう、保護者の皆様はルールを遵守し、安全第一で行動・見守りにご協力をお願いいたします。<br>
                         <span style="color: var(--alert-red); font-size: 12px; display: block; margin-top: 4px;">
-                            ※登山する方は事前に<a href="https://www.fujisan-climb.jp/things-to-know-before-climbing/" target="_blank" style="color: var(--brand-icon-orange); font-weight:900;">富士登山オフィシャルサイト【登山前に知っておくべきこと】</a>をご確認ください。
+                            ※登山する方は事前に<a href="https://www.fujisan-climb.jp/things-to-know-before-climbing/" target="_blank" style="color: var(--brand-orange); font-weight:900;">富士登山オフィシャルサイト【登山前に知っておくべきこと】</a>をご確認ください。
                         </span>
                     </p>
                 </div>
@@ -900,7 +905,7 @@
                             <div class="class-title"><i class="fa-solid fa-bus"></i> 【有明園・海浜幕張園】</div>
                             <ul class="class-timeline">
                                 <li><span class="time">05:30</span> <span><strong>宿よりバス出発</strong>（※早朝出発のため乗り遅れ厳禁）</span></li>
-                                <li><span class="time">06:15</span> <span><strong>洞窟探検 集合</strong>（場所：<a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--brand-icon-orange); font-weight: 900; text-decoration: underline;">道の駅なるさわ第3駐車場</a>）</span></li>
+                                <li><span class="time">06:15</span> <span><strong>洞窟探検 集合</strong>（場所：<a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--brand-orange); font-weight: 900; text-decoration: underline;">道の駅なるさわ第3駐車場</a>）</span></li>
                                 <li><span class="time">12:30</span> <span><strong>石割山 集合</strong>（場所：石割山入口）</span></li>
                             </ul>
                         </div>
@@ -909,7 +914,7 @@
                             <ul class="class-timeline">
                                 <li><span class="time">07:30</span> <span><strong>宿よりバス出発</strong></span></li>
                                 <li><span class="time">07:45</span> <span><strong>石割山 集合</strong>（場所：石割山入口）</span></li>
-                                <li><span class="time">10:15</span> <span><strong>洞窟探検 集合</strong>（場所：<a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--brand-icon-orange); font-weight: 900; text-decoration: underline;">道の駅なるさわ第3駐車場</a>）</span></li>
+                                <li><span class="time">10:15</span> <span><strong>洞窟探検 集合</strong>（場所：<a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--brand-orange); font-weight: 900; text-decoration: underline;">道の駅なるさわ第3駐車場</a>）</span></li>
                             </ul>
                         </div>
                         <div class="class-schedule-box kachidoki">
@@ -917,7 +922,7 @@
                             <ul class="class-timeline">
                                 <li><span class="time">07:30</span> <span><strong>宿よりバス出発</strong></span></li>
                                 <li><span class="time">08:00</span> <span><strong>石割山 集合</strong>（場所：石割山入口）</span></li>
-                                <li><span class="time">11:45</span> <span><strong>洞窟探検 集合</strong>（場所：<a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--brand-icon-orange); font-weight: 900; text-decoration: underline;">道の駅なるさわ第3駐車場</a>）</span></li>
+                                <li><span class="time">11:45</span> <span><strong>洞窟探検 集合</strong>（場所：<a href="https://maps.app.goo.gl/mdmEcqzaQdnCbeRz7" target="_blank" style="color: var(--brand-orange); font-weight: 900; text-decoration: underline;">道の駅なるさわ第3駐車場</a>）</span></li>
                             </ul>
                         </div>
                     </div>
@@ -974,9 +979,9 @@
                     <p style="font-size: 13px; font-weight: 700;">閉村式後は大変混雑するため、自家用車の乗り入れは一切できません。<strong>一時停車・路駐もペナルティの対象となります（各園にペナルティ加算）。</strong>必ず【公共の駐車場】をご利用の上、徒歩で移動してください。</p>
                 </div>
 
-                <div class="route-point" style="border-color: var(--brand-icon-orange); background: #fffaf0;">
-                    <span class="time-tag" style="background:var(--brand-icon-orange);">11:00頃開始</span>
-                    <span class="event-name" style="color: var(--brand-icon-orange); font-weight: 900;">閉村式終了後の現地引き取りフロー（3ステップ）</span>
+                <div class="route-point" style="border-color: var(--brand-orange); background: #fffaf0;">
+                    <span class="time-tag">11:00頃開始</span>
+                    <span class="event-name" style="color: var(--brand-orange); font-weight: 900;">閉村式終了後の現地引き取りフロー（3ステップ）</span>
                     <ol style="padding-left: 20px; font-size: 13px; font-weight: 700; margin-top: 8px;">
                         <li style="margin-bottom: 6px;"><strong>お子様の引き取り：</strong>事前申請された保護者のみ引き取り可能です。必ず園職員へお声掛けのうえ、お子様を引き取ってください。</li>
                         <li style="margin-bottom: 6px;"><strong>お弁当の受け取り・解散：</strong>閉村式終了後、お弁当を受け取り、速やかにご帰宅ください。会場内での滞留・食事はできません。</li>
